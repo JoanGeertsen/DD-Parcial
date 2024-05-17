@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace DD_Parcial
 {
-    internal abstract class Producto
+    internal abstract class Cafe: Producto
     {
         #region Atributos
-        protected string _Nombre;
-        protected string _Descripcion;
-        protected string _FechaIncorporacion;
-        protected int _Stock;
-        public static string FechaInicial="01/01/2000";
+        protected string _Tueste;
+        protected bool _Molido;
+        public static string TuestePorDefecto = "Medio";
         #endregion
 
         #region Constructores
-        public Producto() { _Nombre = ""; _Descripcion = ""; _FechaIncorporacion = FechaInicial; _Stock = 0;}
+        public Cafe(): base() { _Tueste = TuestePorDefecto; _Molido = false; }
 
-        public Producto(string _Nombre, string _Descripcion, string _FechaIncorporacion, int _Stock)
+        public Cafe(string _Nombre, string _Descripcion, string _FechaIncorporacion, int _Stock, string _Tueste, bool _Molido) : base(_Nombre, _Descripcion, _FechaIncorporacion, _Stock)
         {
-            this._Nombre = (_Nombre != null) ? _Nombre: "";
-            this._Descripcion = (_Descripcion != null) ? _Descripcion : "";
-            this._FechaIncorporacion = (_FechaIncorporacion != null) ? _FechaIncorporacion : "";
-            this._Stock = (_Stock > 0) ? _Stock : 0;
+            this._Tueste = (_Tueste.Trim().ToLower() == "bajo" || _Tueste.Trim().ToLower() == "medio" || _Tueste.Trim().ToLower() == "alto") ? "_Tueste" : "TuestePorDefecto";
         }
         #endregion
 
