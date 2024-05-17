@@ -19,33 +19,31 @@ namespace DD_Parcial
 
         public Cafe(string _Nombre, string _Descripcion, string _FechaIncorporacion, int _Stock, string _Tueste, bool _Molido) : base(_Nombre, _Descripcion, _FechaIncorporacion, _Stock)
         {
-            this._Tueste = (_Tueste.Trim().ToLower() == "bajo" || _Tueste.Trim().ToLower() == "medio" || _Tueste.Trim().ToLower() == "alto") ? "_Tueste" : "TuestePorDefecto";
+            this._Tueste = (TuesteValido(_Tueste)) ? _Tueste : TuestePorDefecto;
+            this._Molido = _Molido;
         }
         #endregion
 
         #region Property        
-        public string Nombre
+        public string Tueste
         {
-            get { return _Nombre; }
-            set { _Nombre = (value != null) ? value : ""; }
+            get { return _Tueste; }
+            set { _Tueste = (TuesteValido(value)) ? value : TuestePorDefecto; }
         }
 
-        public string Descripcion
+        public bool Molido
         {
-            get { return _Descripcion; }
-            set { _Descripcion = (value != null) ? value : ""; }
+            get { return _Molido; }
+            set { _Molido = value; }
         }
-        public string FechaIncorporacion
-        {
-            get { return _FechaIncorporacion; }
-            set { _FechaIncorporacion = (value != null) ? value : ""; }
-        }
+        #endregion
 
-        public int Stock
+        #region Static
+        public bool TuesteValido(string tueste)
         {
-            get { return _Stock; }
-            set { _Stock = (value > 0) ? value : 0; }
+            string[] tuestesValidos = { "bajo", "medio", "alto" };
+            return (tueste != null && tuestesValidos.Contains(tueste.Trim().ToLower()));
         }
-        #endregion      
+        #endregion
     }
 }
