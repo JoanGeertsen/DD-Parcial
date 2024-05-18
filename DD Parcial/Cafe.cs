@@ -39,7 +39,7 @@ namespace DD_Parcial
         #endregion
 
         #region Static
-        public bool TuesteValido(string tueste)
+        public static bool TuesteValido(string tueste)
         {
             string[] tuestesValidos = { "bajo", "medio", "alto" };
             return (tueste != null && tuestesValidos.Contains(tueste.Trim().ToLower()));
