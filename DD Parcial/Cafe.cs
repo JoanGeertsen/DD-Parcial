@@ -10,16 +10,18 @@ namespace DD_Parcial
     {
         #region Atributos
         protected string _Tueste;
+        protected string _Origen;
         protected bool _Molido;
         public static string TuestePorDefecto = "Medio";
         #endregion
 
         #region Constructores
-        public Cafe(): base() { _Tueste = TuestePorDefecto; _Molido = false; }
+        public Cafe(): base() { _Tueste = TuestePorDefecto; _Origen = "Desconocido"; _Molido = false; }
 
-        public Cafe(string _Nombre, string _Descripcion, string _FechaIncorporacion, int _Stock, string _Tueste, bool _Molido) : base(_Nombre, _Descripcion, _FechaIncorporacion, _Stock)
+        public Cafe(string _Nombre, string _FechaIncorporacion, int _Stock, string _Tueste, string _Origen, bool _Molido) : base(_Nombre, _FechaIncorporacion, _Stock)
         {
             this._Tueste = (TuesteValido(_Tueste)) ? _Tueste : TuestePorDefecto;
+            this._Origen = (_Origen != null && _Origen.Trim() != "") ? _Origen : "Desconocido";
             this._Molido = _Molido;
         }
         #endregion
@@ -29,6 +31,12 @@ namespace DD_Parcial
         {
             get { return _Tueste; }
             set { _Tueste = (TuesteValido(value)) ? value : TuestePorDefecto; }
+        }
+
+        public string Origen
+        {
+            get { return _Origen; }
+            set { _Origen = (value != null && value.Trim() != "") ? value : "Desconocido"; }
         }
 
         public bool Molido
