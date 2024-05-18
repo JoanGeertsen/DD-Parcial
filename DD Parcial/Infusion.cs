@@ -15,7 +15,7 @@ namespace DD_Parcial
         #region Constructores
         public Infusion() : base() { _Descripcion = ""; }
 
-        public Infusion(string _Nombre, string _FechaIncorporacion, int _Stock, string _Descripcion) : base(_Nombre, _FechaIncorporacion, _Stock)
+        public Infusion(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio, string _Descripcion) : base(_Nombre, _FechaIncorporacion, _Stock, _Precio)
         {
             this._Descripcion = (_Descripcion != null && _Descripcion.Trim() != "") ? _Descripcion : "";
         }
@@ -27,6 +27,13 @@ namespace DD_Parcial
             get { return _Descripcion; }
             set { _Descripcion = (value != null && value.Trim() != "") ? value : ""; }
         }
-        #endregion      
+        #endregion
+
+        #region Consultas
+        public override double CalcularPrecioFinal()
+        {
+            return _Precio;
+        }
+        #endregion
     }
 }

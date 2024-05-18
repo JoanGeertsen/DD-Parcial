@@ -15,8 +15,8 @@ namespace DD_Parcial
         #region Constructores      
         public Filtro() : base() { }
 
-        public Filtro(string _Nombre, string _FechaIncorporacion, int _Stock, string _Tueste, string _Origen, bool _Molido) 
-            : base(_Nombre, _FechaIncorporacion, _Stock, _Tueste, _Origen, _Molido) { }   
+        public Filtro(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido) 
+            : base(_Nombre, _FechaIncorporacion, _Stock, _Precio, _Tueste, _Origen, _Molido) { }   
         #endregion
     }
 }

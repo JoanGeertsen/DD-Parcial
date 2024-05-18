@@ -13,12 +13,13 @@ namespace DD_Parcial
         protected string _Origen;
         protected bool _Molido;
         public static string TuestePorDefecto = "Medio";
+        public static double RecargoPorMolido = 550;
         #endregion
 
         #region Constructores
         public Cafe(): base() { _Tueste = TuestePorDefecto; _Origen = "Desconocido"; _Molido = false; }
 
-        public Cafe(string _Nombre, string _FechaIncorporacion, int _Stock, string _Tueste, string _Origen, bool _Molido) : base(_Nombre, _FechaIncorporacion, _Stock)
+        public Cafe(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido) : base(_Nombre, _FechaIncorporacion, _Stock, _Precio)
         {
             this._Tueste = (TuesteValido(_Tueste)) ? _Tueste : TuestePorDefecto;
             this._Origen = (_Origen != null && _Origen.Trim() != "") ? _Origen : "Desconocido";
@@ -51,6 +52,13 @@ namespace DD_Parcial
         {
             string[] tuestesValidos = { "bajo", "medio", "alto" };
             return (tueste != null && tuestesValidos.Contains(tueste.Trim().ToLower()));
+        }
+        #endregion
+
+        #region Consultas
+        public override double CalcularPrecioFinal()
+        {
+            return (_Molido) ? _Precio + RecargoPorMolido : _Precio;
         }
         #endregion
     }

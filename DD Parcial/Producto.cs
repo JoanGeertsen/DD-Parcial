@@ -14,7 +14,7 @@ namespace DD_Parcial
         protected double _Precio;
         protected string _FechaIncorporacion;
         protected int _Stock;
-        public static string FechaInicial="01/01/2000";
+        public static string FechaInicial = "01/01/2000";
         #endregion
 
         #region Constructores
@@ -22,7 +22,7 @@ namespace DD_Parcial
 
         public Producto(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio)
         {
-            this._Nombre = (_Nombre != null) ? _Nombre: "";
+            this._Nombre = (_Nombre != null) ? _Nombre : "";
             this._FechaIncorporacion = (_FechaIncorporacion != null) ? _FechaIncorporacion : "";
             this._Stock = (_Stock > 0) ? _Stock : 0;
             this._Precio = (_Precio > 0) ? _Precio : 0;
@@ -35,7 +35,7 @@ namespace DD_Parcial
             get { return _Nombre; }
             set { _Nombre = (value != null) ? value : ""; }
         }
-        
+
         public string FechaIncorporacion
         {
             get { return _FechaIncorporacion; }
@@ -53,6 +53,10 @@ namespace DD_Parcial
             get { return _Precio; }
             set { _Precio = (value > 0) ? value : 0; }
         }
-        #endregion      
+        #endregion
+
+        #region Consultas
+        public abstract double CalcularPrecioFinal();
+        #endregion
     }
 }
