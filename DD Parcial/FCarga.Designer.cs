@@ -30,6 +30,7 @@
         {
             cbTipoProducto = new ComboBox();
             pCafe = new Panel();
+            chMolido = new CheckBox();
             tOrigen = new TextBox();
             label2 = new Label();
             cbTueste = new ComboBox();
@@ -39,9 +40,17 @@
             nudStock = new NumericUpDown();
             label1 = new Label();
             bGuardar = new Button();
-            chMolido = new CheckBox();
+            label3 = new Label();
+            pTe = new Panel();
+            chPresentacion = new CheckBox();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
+            pInfusion = new Panel();
+            richTextBox1 = new RichTextBox();
             pCafe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
+            pTe.SuspendLayout();
+            pInfusion.SuspendLayout();
             SuspendLayout();
             // 
             // cbTipoProducto
@@ -53,6 +62,7 @@
             cbTipoProducto.Name = "cbTipoProducto";
             cbTipoProducto.Size = new Size(200, 23);
             cbTipoProducto.TabIndex = 0;
+            cbTipoProducto.SelectedIndexChanged += cbTipoProducto_SelectedIndexChanged;
             // 
             // pCafe
             // 
@@ -61,10 +71,21 @@
             pCafe.Controls.Add(tOrigen);
             pCafe.Controls.Add(label2);
             pCafe.Controls.Add(cbTueste);
-            pCafe.Location = new Point(12, 98);
+            pCafe.Location = new Point(12, 96);
             pCafe.Name = "pCafe";
             pCafe.Size = new Size(200, 100);
-            pCafe.TabIndex = 1;
+            pCafe.TabIndex = 5;
+            pCafe.Visible = false;
+            // 
+            // chMolido
+            // 
+            chMolido.AutoSize = true;
+            chMolido.Location = new Point(11, 67);
+            chMolido.Name = "chMolido";
+            chMolido.Size = new Size(64, 19);
+            chMolido.TabIndex = 3;
+            chMolido.Text = "Molido";
+            chMolido.UseVisualStyleBackColor = true;
             // 
             // tOrigen
             // 
@@ -106,20 +127,20 @@
             // 
             // mtPrecio
             // 
-            mtPrecio.Location = new Point(129, 68);
+            mtPrecio.Location = new Point(140, 68);
             mtPrecio.Mask = "$";
             mtPrecio.Name = "mtPrecio";
-            mtPrecio.Size = new Size(83, 23);
+            mtPrecio.Size = new Size(72, 23);
             mtPrecio.TabIndex = 3;
             // 
             // dtFechaIncorporacion
             // 
             dtFechaIncorporacion.Format = DateTimePickerFormat.Short;
-            dtFechaIncorporacion.Location = new Point(12, 68);
+            dtFechaIncorporacion.Location = new Point(52, 68);
             dtFechaIncorporacion.Name = "dtFechaIncorporacion";
-            dtFechaIncorporacion.Size = new Size(88, 23);
+            dtFechaIncorporacion.Size = new Size(78, 23);
             dtFechaIncorporacion.TabIndex = 4;
-            dtFechaIncorporacion.Value = new DateTime(2024, 4, 16, 0, 0, 0, 0);
+            dtFechaIncorporacion.Value = new DateTime(2024, 5, 19, 0, 0, 0, 0);
             // 
             // nudStock
             // 
@@ -140,6 +161,7 @@
             // bGuardar
             // 
             bGuardar.BackColor = Color.PaleGreen;
+            bGuardar.Enabled = false;
             bGuardar.FlatStyle = FlatStyle.Flat;
             bGuardar.Location = new Point(82, 202);
             bGuardar.Name = "bGuardar";
@@ -148,34 +170,98 @@
             bGuardar.Text = "Guardar";
             bGuardar.UseVisualStyleBackColor = false;
             // 
-            // chMolido
+            // label3
             // 
-            chMolido.AutoSize = true;
-            chMolido.Location = new Point(11, 67);
-            chMolido.Name = "chMolido";
-            chMolido.Size = new Size(64, 19);
-            chMolido.TabIndex = 3;
-            chMolido.Text = "Molido";
-            chMolido.UseVisualStyleBackColor = true;
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 71);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Venc.:";
+            // 
+            // pTe
+            // 
+            pTe.BackColor = Color.Tan;
+            pTe.Controls.Add(chPresentacion);
+            pTe.Controls.Add(label4);
+            pTe.Controls.Add(comboBox1);
+            pTe.Location = new Point(12, 96);
+            pTe.Name = "pTe";
+            pTe.Size = new Size(200, 100);
+            pTe.TabIndex = 2;
+            pTe.Visible = false;
+            // 
+            // chPresentacion
+            // 
+            chPresentacion.AutoSize = true;
+            chPresentacion.Location = new Point(11, 42);
+            chPresentacion.Name = "chPresentacion";
+            chPresentacion.Size = new Size(132, 19);
+            chPresentacion.TabIndex = 3;
+            chPresentacion.Text = "Presentación en lata";
+            chPresentacion.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(11, 7);
+            label4.Name = "label4";
+            label4.Size = new Size(33, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Tipo:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
+            comboBox1.Location = new Point(50, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(63, 23);
+            comboBox1.TabIndex = 0;
+            // 
+            // pInfusion
+            // 
+            pInfusion.BackColor = Color.Tan;
+            pInfusion.Controls.Add(richTextBox1);
+            pInfusion.Location = new Point(12, 96);
+            pInfusion.Name = "pInfusion";
+            pInfusion.Size = new Size(200, 100);
+            pInfusion.TabIndex = 0;
+            pInfusion.Visible = false;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(6, 11);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(186, 74);
+            richTextBox1.TabIndex = 2;
+            richTextBox1.Text = "Descripción...";
             // 
             // FCarga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(226, 262);
+            ClientSize = new Size(223, 262);
+            Controls.Add(pInfusion);
+            Controls.Add(pCafe);
+            Controls.Add(pTe);
+            Controls.Add(label3);
             Controls.Add(bGuardar);
             Controls.Add(label1);
             Controls.Add(nudStock);
             Controls.Add(dtFechaIncorporacion);
             Controls.Add(mtPrecio);
             Controls.Add(tNombre);
-            Controls.Add(pCafe);
             Controls.Add(cbTipoProducto);
             Name = "FCarga";
             Text = "Carga / Modificación";
             pCafe.ResumeLayout(false);
             pCafe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
+            pTe.ResumeLayout(false);
+            pTe.PerformLayout();
+            pInfusion.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,5 +280,12 @@
         private Label label2;
         private ComboBox cbTueste;
         private CheckBox chMolido;
+        private Label label3;
+        private Panel pTe;
+        private CheckBox chPresentacion;
+        private Label label4;
+        private ComboBox comboBox1;
+        private Panel pInfusion;
+        private RichTextBox richTextBox1;
     }
 }
