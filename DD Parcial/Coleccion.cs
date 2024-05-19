@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,6 +33,12 @@ namespace DD_Parcial
 
         #region consultas
         public List<Producto> Buscar() { return _ListaProductos; }
+
+        public List<Producto> Buscar(Type tipo) 
+        { 
+            return _ListaProductos.FindAll(producto => producto.GetType() == tipo);
+        }
+        
         #endregion
     }
 }

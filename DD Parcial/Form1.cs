@@ -5,6 +5,6 @@ namespace DD_Parcial
         public FPrincipal()
         {
             InitializeComponent();
-        }      
+        }
     }
 }

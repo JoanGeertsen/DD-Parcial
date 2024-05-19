@@ -200,7 +200,7 @@
             button3.Size = new Size(84, 39);
             button3.TabIndex = 6;
             button3.Text = "Eliminar";
-            button3.UseVisualStyleBackColor = false;        
+            button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
