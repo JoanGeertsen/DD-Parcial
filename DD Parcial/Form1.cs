@@ -6,5 +6,11 @@ namespace DD_Parcial
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FCarga carga = new FCarga();
+            carga.Show();
+        }
     }
 }

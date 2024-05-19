@@ -165,23 +165,24 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.Tan;
+            button1.BackColor = Color.PaleGreen;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.ForeColor = SystemColors.ActiveCaptionText;
             button1.Location = new Point(12, 322);
             button1.Name = "button1";
             button1.Size = new Size(84, 39);
             button1.TabIndex = 0;
             button1.Text = "Agregar";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.BackColor = Color.Tan;
+            button2.BackColor = Color.Khaki;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.ForeColor = SystemColors.ActiveCaptionText;
             button2.Location = new Point(113, 322);
             button2.Name = "button2";
             button2.Size = new Size(84, 39);
@@ -191,10 +192,10 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Tan;
+            button3.BackColor = Color.IndianRed;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.ForeColor = SystemColors.ActiveCaptionText;
             button3.Location = new Point(212, 322);
             button3.Name = "button3";
             button3.Size = new Size(84, 39);

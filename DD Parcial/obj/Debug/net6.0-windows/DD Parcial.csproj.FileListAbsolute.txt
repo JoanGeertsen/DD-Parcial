@@ -14,3 +14,5 @@ C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Pa
 C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.genruntimeconfig.cache
 C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\ref\DD Parcial.dll
 C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FPrincipal.resources
+C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FCarga.resources
+C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.Properties.Resources.resources

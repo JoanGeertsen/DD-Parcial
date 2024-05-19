@@ -37,8 +37,7 @@ namespace DD_Parcial
         public List<Producto> Buscar(Type tipo) 
         { 
             return _ListaProductos.FindAll(producto => producto.GetType() == tipo);
-        }
-        
+        }        
         #endregion
     }
 }
