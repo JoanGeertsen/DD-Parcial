@@ -12,7 +12,7 @@
         #region Constructores
         public Te() : base() { _Tipo = TipoPorDefecto; _PresentacionEnLata = false; }
 
-        public Te(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio, string _Tipo) : base(_Nombre, _FechaIncorporacion, _Stock, _Precio)
+        public Te(string _Nombre, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Tipo) : base(_Nombre, _FechaVencimiento, _Stock, _Precio)
         {
             this._Tipo = (TipoValido(_Tipo)) ? _Tipo : TipoPorDefecto;
         }

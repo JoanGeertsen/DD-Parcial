@@ -15,8 +15,8 @@ namespace DD_Parcial
         #region Constructores      
         public Espresso() : base() { }
 
-        public Espresso(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido)
-            : base(_Nombre, _FechaIncorporacion, _Stock, _Precio, _Tueste, _Origen, _Molido) { }
+        public Espresso(string _Nombre, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido)
+            : base(_Nombre, _FechaVencimiento, _Stock, _Precio, _Tueste, _Origen, _Molido) { }
         #endregion
     }
 }

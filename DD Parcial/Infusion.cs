@@ -15,7 +15,7 @@ namespace DD_Parcial
         #region Constructores
         public Infusion() : base() { _Descripcion = ""; }
 
-        public Infusion(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio, string _Descripcion) : base(_Nombre, _FechaIncorporacion, _Stock, _Precio)
+        public Infusion(string _Nombre, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Descripcion) : base(_Nombre, _FechaVencimiento, _Stock, _Precio)
         {
             this._Descripcion = (_Descripcion != null && _Descripcion.Trim() != "") ? _Descripcion : "";
         }

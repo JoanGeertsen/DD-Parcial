@@ -12,18 +12,18 @@ namespace DD_Parcial
         #region Atributos
         protected string _Nombre;
         protected double _Precio;
-        protected string _FechaIncorporacion;
+        protected DateTime _FechaVencimiento;
         protected int _Stock;
-        public static string FechaInicial = "01/01/2000";
+        public static DateTime VencimientoPorDefecto = DateTime.Today;
         #endregion
 
         #region Constructores
-        public Producto() { _Nombre = ""; _FechaIncorporacion = FechaInicial; _Stock = 0; _Precio = 0; }
+        public Producto() { _Nombre = ""; _FechaVencimiento = VencimientoPorDefecto; _Stock = 0; _Precio = 0; }
 
-        public Producto(string _Nombre, string _FechaIncorporacion, int _Stock, double _Precio)
+        public Producto(string _Nombre, DateTime _FechaVencimiento, int _Stock, double _Precio)
         {
             this._Nombre = (_Nombre != null) ? _Nombre : "";
-            this._FechaIncorporacion = (_FechaIncorporacion != null) ? _FechaIncorporacion : "";
+            this._FechaVencimiento = (_FechaVencimiento <= DateTime.Today) ? _FechaVencimiento : VencimientoPorDefecto;
             this._Stock = (_Stock > 0) ? _Stock : 0;
             this._Precio = (_Precio > 0) ? _Precio : 0;
         }
@@ -36,10 +36,10 @@ namespace DD_Parcial
             set { _Nombre = (value != null) ? value : ""; }
         }
 
-        public string FechaIncorporacion
+        public DateTime FechaVencimiento
         {
-            get { return _FechaIncorporacion; }
-            set { _FechaIncorporacion = (value != null) ? value : ""; }
+            get { return _FechaVencimiento; }
+            set { _FechaVencimiento = (value <= DateTime.Today) ? value : VencimientoPorDefecto; }
         }
 
         public int Stock
