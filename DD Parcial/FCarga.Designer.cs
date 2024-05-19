@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cbTipoProducto = new ComboBox();
             pCafe = new Panel();
             chMolido = new CheckBox();
@@ -46,11 +47,13 @@
             label4 = new Label();
             comboBox1 = new ComboBox();
             pInfusion = new Panel();
-            richTextBox1 = new RichTextBox();
+            rtDescripcion = new RichTextBox();
+            ep = new ErrorProvider(components);
             pCafe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             pTe.SuspendLayout();
             pInfusion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ep).BeginInit();
             SuspendLayout();
             // 
             // cbTipoProducto
@@ -92,11 +95,14 @@
             tOrigen.AutoCompleteCustomSource.AddRange(new string[] { "Colombia", "Brasil", "Perú", "Bolivia", "Etiopía" });
             tOrigen.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tOrigen.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tOrigen.ForeColor = SystemColors.InactiveCaption;
             tOrigen.Location = new Point(10, 32);
             tOrigen.Name = "tOrigen";
             tOrigen.Size = new Size(184, 23);
             tOrigen.TabIndex = 2;
             tOrigen.Text = "Origen";
+            tOrigen.Enter += tOrigen_Enter;
+            tOrigen.Leave += tOrigen_Leave;
             // 
             // label2
             // 
@@ -119,11 +125,14 @@
             // 
             // tNombre
             // 
+            tNombre.ForeColor = SystemColors.ControlDark;
             tNombre.Location = new Point(12, 39);
             tNombre.Name = "tNombre";
             tNombre.Size = new Size(200, 23);
             tNombre.TabIndex = 2;
             tNombre.Text = "Nombre";
+            tNombre.Enter += tNombre_Enter;
+            tNombre.Leave += tNombre_Leave;
             // 
             // mtPrecio
             // 
@@ -169,6 +178,7 @@
             bGuardar.TabIndex = 7;
             bGuardar.Text = "Guardar";
             bGuardar.UseVisualStyleBackColor = false;
+            bGuardar.Click += bGuardar_Click;
             // 
             // label3
             // 
@@ -223,20 +233,27 @@
             // pInfusion
             // 
             pInfusion.BackColor = Color.Tan;
-            pInfusion.Controls.Add(richTextBox1);
+            pInfusion.Controls.Add(rtDescripcion);
             pInfusion.Location = new Point(12, 96);
             pInfusion.Name = "pInfusion";
             pInfusion.Size = new Size(200, 100);
             pInfusion.TabIndex = 0;
             pInfusion.Visible = false;
             // 
-            // richTextBox1
+            // rtDescripcion
             // 
-            richTextBox1.Location = new Point(6, 11);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(186, 74);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "Descripción...";
+            rtDescripcion.ForeColor = SystemColors.InactiveCaption;
+            rtDescripcion.Location = new Point(6, 11);
+            rtDescripcion.Name = "rtDescripcion";
+            rtDescripcion.Size = new Size(186, 74);
+            rtDescripcion.TabIndex = 2;
+            rtDescripcion.Text = "Descripción...";
+            rtDescripcion.Enter += rtDescripcion_Enter;
+            rtDescripcion.Leave += rtDescripcion_Leave;
+            // 
+            // ep
+            // 
+            ep.ContainerControl = this;
             // 
             // FCarga
             // 
@@ -262,6 +279,7 @@
             pTe.ResumeLayout(false);
             pTe.PerformLayout();
             pInfusion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ep).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,6 +304,7 @@
         private Label label4;
         private ComboBox comboBox1;
         private Panel pInfusion;
-        private RichTextBox richTextBox1;
+        private RichTextBox rtDescripcion;
+        private ErrorProvider ep;
     }
 }
