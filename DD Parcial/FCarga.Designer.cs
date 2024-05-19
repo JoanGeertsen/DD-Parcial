@@ -36,8 +36,7 @@
             label2 = new Label();
             cbTueste = new ComboBox();
             tNombre = new TextBox();
-            mtPrecio = new MaskedTextBox();
-            dtFechaIncorporacion = new DateTimePicker();
+            dtFechaVencimiento = new DateTimePicker();
             nudStock = new NumericUpDown();
             label1 = new Label();
             bGuardar = new Button();
@@ -49,6 +48,8 @@
             pInfusion = new Panel();
             rtDescripcion = new RichTextBox();
             ep = new ErrorProvider(components);
+            label5 = new Label();
+            tPrecio = new TextBox();
             pCafe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             pTe.SuspendLayout();
@@ -66,6 +67,7 @@
             cbTipoProducto.Size = new Size(200, 23);
             cbTipoProducto.TabIndex = 0;
             cbTipoProducto.SelectedIndexChanged += cbTipoProducto_SelectedIndexChanged;
+            cbTipoProducto.Validating += cbTipoProducto_Validating;
             // 
             // pCafe
             // 
@@ -133,23 +135,17 @@
             tNombre.Text = "Nombre";
             tNombre.Enter += tNombre_Enter;
             tNombre.Leave += tNombre_Leave;
+            tNombre.Validating += tNombre_Validating;
             // 
-            // mtPrecio
+            // dtFechaVencimiento
             // 
-            mtPrecio.Location = new Point(140, 68);
-            mtPrecio.Mask = "$";
-            mtPrecio.Name = "mtPrecio";
-            mtPrecio.Size = new Size(72, 23);
-            mtPrecio.TabIndex = 3;
-            // 
-            // dtFechaIncorporacion
-            // 
-            dtFechaIncorporacion.Format = DateTimePickerFormat.Short;
-            dtFechaIncorporacion.Location = new Point(52, 68);
-            dtFechaIncorporacion.Name = "dtFechaIncorporacion";
-            dtFechaIncorporacion.Size = new Size(78, 23);
-            dtFechaIncorporacion.TabIndex = 4;
-            dtFechaIncorporacion.Value = new DateTime(2024, 5, 19, 0, 0, 0, 0);
+            dtFechaVencimiento.Format = DateTimePickerFormat.Short;
+            dtFechaVencimiento.Location = new Point(52, 68);
+            dtFechaVencimiento.Name = "dtFechaVencimiento";
+            dtFechaVencimiento.Size = new Size(78, 23);
+            dtFechaVencimiento.TabIndex = 4;
+            dtFechaVencimiento.Value = new DateTime(2024, 5, 19, 0, 0, 0, 0);
+            dtFechaVencimiento.Validating += dtFechaVencimiento_Validating;
             // 
             // nudStock
             // 
@@ -255,11 +251,36 @@
             // 
             ep.ContainerControl = this;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(136, 72);
+            label5.Name = "label5";
+            label5.Size = new Size(13, 15);
+            label5.TabIndex = 9;
+            label5.Text = "$";
+            // 
+            // tPrecio
+            // 
+            tPrecio.BackColor = Color.WhiteSmoke;
+            tPrecio.ForeColor = SystemColors.InactiveCaption;
+            tPrecio.Location = new Point(152, 68);
+            tPrecio.Name = "tPrecio";
+            tPrecio.Size = new Size(60, 23);
+            tPrecio.TabIndex = 10;
+            tPrecio.Text = "0";
+            tPrecio.Enter += tPrecio_Enter;
+            tPrecio.KeyPress += tPrecio_KeyPress;
+            tPrecio.Leave += tPrecio_Leave;
+            tPrecio.Validating += tPrecio_Validating;
+            // 
             // FCarga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(223, 262);
+            ClientSize = new Size(228, 262);
+            Controls.Add(tPrecio);
+            Controls.Add(label5);
             Controls.Add(pInfusion);
             Controls.Add(pCafe);
             Controls.Add(pTe);
@@ -267,8 +288,7 @@
             Controls.Add(bGuardar);
             Controls.Add(label1);
             Controls.Add(nudStock);
-            Controls.Add(dtFechaIncorporacion);
-            Controls.Add(mtPrecio);
+            Controls.Add(dtFechaVencimiento);
             Controls.Add(tNombre);
             Controls.Add(cbTipoProducto);
             Name = "FCarga";
@@ -289,8 +309,7 @@
         private ComboBox cbTipoProducto;
         private Panel pCafe;
         private TextBox tNombre;
-        private MaskedTextBox mtPrecio;
-        private DateTimePicker dtFechaIncorporacion;
+        private DateTimePicker dtFechaVencimiento;
         private NumericUpDown nudStock;
         private Label label1;
         private Button bGuardar;
@@ -306,5 +325,7 @@
         private Panel pInfusion;
         private RichTextBox rtDescripcion;
         private ErrorProvider ep;
+        private TextBox tPrecio;
+        private Label label5;
     }
 }

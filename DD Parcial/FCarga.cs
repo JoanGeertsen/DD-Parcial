@@ -35,6 +35,29 @@ namespace DD_Parcial
         #endregion
 
         #region Validaciones de campo
+        private void cbTipoProducto_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbTipoProducto.SelectedIndex == -1) ep.SetError(cbTipoProducto, "Producto no seleccionado");
+            else ep.SetError(cbTipoProducto, "");
+        }
+
+        private void tNombre_Validating(object sender, CancelEventArgs e)
+        {
+            if (tNombre.Text == "Nombre") ep.SetError(tNombre, "Nombre inválido");
+            else ep.SetError(tNombre, "");
+        }
+
+        private void tPrecio_Validating(object sender, CancelEventArgs e)
+        {
+            if (tPrecio.Text == null || tPrecio.Text.Trim() == "") tPrecio.Text = "0";
+            if (double.Parse(tPrecio.Text) <= 0) ep.SetError(tPrecio, "Precio invalido");
+            else ep.SetError(tPrecio, "");
+        }
+        private void dtFechaVencimiento_Validating(object sender, CancelEventArgs e)
+        {
+            if (dtFechaVencimiento.Value < DateTime.Today) ep.SetError(dtFechaVencimiento, "Producto vencido");
+            else ep.SetError(dtFechaVencimiento, "");
+        }
         #endregion
 
         #region Marcas de agua
@@ -90,6 +113,32 @@ namespace DD_Parcial
                 tOrigen.Text = "Origen";
                 tOrigen.ForeColor = Color.Gray;
             }
+        }
+        private void tPrecio_Enter(object sender, EventArgs e)
+        {
+            if (tPrecio.Text == "0")
+            {
+                tPrecio.Text = "";
+                tPrecio.ForeColor = Color.Black;
+            }
+        }
+
+        private void tPrecio_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tPrecio.Text))
+            {
+                tPrecio.Text = "0";
+                tPrecio.ForeColor = Color.Gray;
+            }
+        }
+        #endregion
+
+        #region KeyPress
+        private void tPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+                         
+                e.Handled = true;            
         }
         #endregion
     }
