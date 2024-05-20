@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DD_Parcial
 {
-    internal abstract class Cafe: Producto
+    public abstract class Cafe: Producto
     {
         #region Atributos
         protected string _Tueste;

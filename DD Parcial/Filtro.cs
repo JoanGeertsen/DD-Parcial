@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DD_Parcial
 {
-    internal class Filtro: Cafe
+    public class Filtro: Cafe
     {
         #region Atributos
         public static string MetodosRecomendados = "V60, Chemex, Prensa Francesa, Aeropress";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DD_Parcial
 {
-    internal class Espresso: Cafe
+    public class Espresso: Cafe
     {
         #region Atributos
         public static string MetodosRecomendados = "Espresso, Moka";

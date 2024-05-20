@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace DD_Parcial
 {
-    internal abstract class Producto
+    public abstract class Producto
     {
         #region Atributos
         protected string _Nombre;

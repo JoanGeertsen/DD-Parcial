@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DD_Parcial
 {
-    internal class Coleccion
+    public class Coleccion
     {
         #region Atributos
         private List<Producto> _ListaProductos;

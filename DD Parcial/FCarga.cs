@@ -14,9 +14,13 @@ namespace DD_Parcial
 {
     public partial class FCarga : Form
     {
-        public FCarga()
+        #region Atributos
+        private Coleccion _Coleccion;
+        #endregion
+        public FCarga(Coleccion _Coleccion)
         {
             InitializeComponent();
+            this._Coleccion = _Coleccion; 
         }
 
         #region Funcionalidades
@@ -37,11 +41,11 @@ namespace DD_Parcial
             //Recorre todos los controles que hay que verificar, para asegurar que tenga un error en caso de necesitarlo.
             cbTipoProducto.Focus(); tNombre.Focus(); tPrecio.Focus();
             if (selectedIndex == 0 || selectedIndex == 1) { cbTueste.Focus(); tOrigen.Focus(); }
-            else if(selectedIndex == 2) { cbTipoTe.Focus();}
-            else if(selectedIndex == 3) { rtDescripcion.Focus();}
+            else if (selectedIndex == 2) { cbTipoTe.Focus(); }
+            else if (selectedIndex == 3) { rtDescripcion.Focus(); }
             cbTipoProducto.Focus();
-           
-            if ((selectedIndex==0 || selectedIndex == 1) && string.IsNullOrEmpty(ep.GetError(cbTueste)) && string.IsNullOrEmpty(ep.GetError(tOrigen)))
+
+            if ((selectedIndex == 0 || selectedIndex == 1) && string.IsNullOrEmpty(ep.GetError(cbTueste)) && string.IsNullOrEmpty(ep.GetError(tOrigen)))
                 validado = true;
             else if (selectedIndex == 2 && string.IsNullOrEmpty(ep.GetError(cbTipoTe)))
                 validado = true;

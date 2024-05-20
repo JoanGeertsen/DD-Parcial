@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DD_Parcial
 {
-    internal class Infusion: Producto
+    public class Infusion: Producto
     {
         #region Atributos
         private string _Descripcion;

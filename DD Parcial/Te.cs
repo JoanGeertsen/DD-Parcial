@@ -1,6 +1,6 @@
 ﻿namespace DD_Parcial
 {
-    internal class Te : Producto
+    public class Te : Producto
     {
         #region Atributos
         private string _Tipo;
