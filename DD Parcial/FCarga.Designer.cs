@@ -35,6 +35,8 @@
             tOrigen = new TextBox();
             label2 = new Label();
             cbTueste = new ComboBox();
+            pInfusion = new Panel();
+            rtDescripcion = new RichTextBox();
             tNombre = new TextBox();
             dtFechaVencimiento = new DateTimePicker();
             nudStock = new NumericUpDown();
@@ -44,16 +46,14 @@
             pTe = new Panel();
             chPresentacion = new CheckBox();
             label4 = new Label();
-            comboBox1 = new ComboBox();
-            pInfusion = new Panel();
-            rtDescripcion = new RichTextBox();
+            cbTipoTe = new ComboBox();
             ep = new ErrorProvider(components);
             label5 = new Label();
             tPrecio = new TextBox();
             pCafe.SuspendLayout();
+            pInfusion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             pTe.SuspendLayout();
-            pInfusion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ep).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             cbTipoProducto.Items.AddRange(new object[] { "Café para Filtrados", "Café para Espressos ", "Té", "Infusiones" });
             cbTipoProducto.Location = new Point(12, 12);
             cbTipoProducto.Name = "cbTipoProducto";
-            cbTipoProducto.Size = new Size(200, 23);
+            cbTipoProducto.Size = new Size(210, 23);
             cbTipoProducto.TabIndex = 0;
             cbTipoProducto.SelectedIndexChanged += cbTipoProducto_SelectedIndexChanged;
             cbTipoProducto.Validating += cbTipoProducto_Validating;
@@ -76,9 +76,9 @@
             pCafe.Controls.Add(tOrigen);
             pCafe.Controls.Add(label2);
             pCafe.Controls.Add(cbTueste);
-            pCafe.Location = new Point(12, 96);
+            pCafe.Location = new Point(12, 97);
             pCafe.Name = "pCafe";
-            pCafe.Size = new Size(200, 100);
+            pCafe.Size = new Size(210, 100);
             pCafe.TabIndex = 5;
             pCafe.Visible = false;
             // 
@@ -105,6 +105,7 @@
             tOrigen.Text = "Origen";
             tOrigen.Enter += tOrigen_Enter;
             tOrigen.Leave += tOrigen_Leave;
+            tOrigen.Validating += tOrigen_Validating;
             // 
             // label2
             // 
@@ -124,13 +125,36 @@
             cbTueste.Name = "cbTueste";
             cbTueste.Size = new Size(57, 23);
             cbTueste.TabIndex = 0;
+            cbTueste.Validating += cbTueste_Validating;
+            // 
+            // pInfusion
+            // 
+            pInfusion.BackColor = Color.Tan;
+            pInfusion.Controls.Add(rtDescripcion);
+            pInfusion.Location = new Point(12, 95);
+            pInfusion.Name = "pInfusion";
+            pInfusion.Size = new Size(210, 100);
+            pInfusion.TabIndex = 0;
+            pInfusion.Visible = false;
+            // 
+            // rtDescripcion
+            // 
+            rtDescripcion.ForeColor = SystemColors.InactiveCaption;
+            rtDescripcion.Location = new Point(6, 11);
+            rtDescripcion.Name = "rtDescripcion";
+            rtDescripcion.Size = new Size(186, 74);
+            rtDescripcion.TabIndex = 2;
+            rtDescripcion.Text = "Descripción...";
+            rtDescripcion.Enter += rtDescripcion_Enter;
+            rtDescripcion.Leave += rtDescripcion_Leave;
+            rtDescripcion.Validating += rtDescripcion_Validating;
             // 
             // tNombre
             // 
             tNombre.ForeColor = SystemColors.ControlDark;
             tNombre.Location = new Point(12, 39);
             tNombre.Name = "tNombre";
-            tNombre.Size = new Size(200, 23);
+            tNombre.Size = new Size(210, 23);
             tNombre.TabIndex = 2;
             tNombre.Text = "Nombre";
             tNombre.Enter += tNombre_Enter;
@@ -166,9 +190,8 @@
             // bGuardar
             // 
             bGuardar.BackColor = Color.PaleGreen;
-            bGuardar.Enabled = false;
             bGuardar.FlatStyle = FlatStyle.Flat;
-            bGuardar.Location = new Point(82, 202);
+            bGuardar.Location = new Point(92, 202);
             bGuardar.Name = "bGuardar";
             bGuardar.Size = new Size(130, 43);
             bGuardar.TabIndex = 7;
@@ -190,10 +213,10 @@
             pTe.BackColor = Color.Tan;
             pTe.Controls.Add(chPresentacion);
             pTe.Controls.Add(label4);
-            pTe.Controls.Add(comboBox1);
-            pTe.Location = new Point(12, 96);
+            pTe.Controls.Add(cbTipoTe);
+            pTe.Location = new Point(12, 98);
             pTe.Name = "pTe";
-            pTe.Size = new Size(200, 100);
+            pTe.Size = new Size(210, 100);
             pTe.TabIndex = 2;
             pTe.Visible = false;
             // 
@@ -216,36 +239,16 @@
             label4.TabIndex = 1;
             label4.Text = "Tipo:";
             // 
-            // comboBox1
+            // cbTipoTe
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
-            comboBox1.Location = new Point(50, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(63, 23);
-            comboBox1.TabIndex = 0;
-            // 
-            // pInfusion
-            // 
-            pInfusion.BackColor = Color.Tan;
-            pInfusion.Controls.Add(rtDescripcion);
-            pInfusion.Location = new Point(12, 96);
-            pInfusion.Name = "pInfusion";
-            pInfusion.Size = new Size(200, 100);
-            pInfusion.TabIndex = 0;
-            pInfusion.Visible = false;
-            // 
-            // rtDescripcion
-            // 
-            rtDescripcion.ForeColor = SystemColors.InactiveCaption;
-            rtDescripcion.Location = new Point(6, 11);
-            rtDescripcion.Name = "rtDescripcion";
-            rtDescripcion.Size = new Size(186, 74);
-            rtDescripcion.TabIndex = 2;
-            rtDescripcion.Text = "Descripción...";
-            rtDescripcion.Enter += rtDescripcion_Enter;
-            rtDescripcion.Leave += rtDescripcion_Leave;
+            cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipoTe.FormattingEnabled = true;
+            cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
+            cbTipoTe.Location = new Point(50, 4);
+            cbTipoTe.Name = "cbTipoTe";
+            cbTipoTe.Size = new Size(63, 23);
+            cbTipoTe.TabIndex = 0;
+            cbTipoTe.Validating += cbTipoTe_Validating;
             // 
             // ep
             // 
@@ -266,7 +269,7 @@
             tPrecio.ForeColor = SystemColors.InactiveCaption;
             tPrecio.Location = new Point(152, 68);
             tPrecio.Name = "tPrecio";
-            tPrecio.Size = new Size(60, 23);
+            tPrecio.Size = new Size(70, 23);
             tPrecio.TabIndex = 10;
             tPrecio.Text = "0";
             tPrecio.Enter += tPrecio_Enter;
@@ -278,7 +281,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(228, 262);
+            ClientSize = new Size(240, 262);
             Controls.Add(tPrecio);
             Controls.Add(label5);
             Controls.Add(pInfusion);
@@ -295,10 +298,10 @@
             Text = "Carga / Modificación";
             pCafe.ResumeLayout(false);
             pCafe.PerformLayout();
+            pInfusion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
             pTe.ResumeLayout(false);
             pTe.PerformLayout();
-            pInfusion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ep).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -321,7 +324,7 @@
         private Panel pTe;
         private CheckBox chPresentacion;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cbTipoTe;
         private Panel pInfusion;
         private RichTextBox rtDescripcion;
         private ErrorProvider ep;
