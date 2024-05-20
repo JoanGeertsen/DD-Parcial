@@ -42,7 +42,7 @@ namespace DD_Parcial
             ep.Clear();
 
             //Recorre todos los controles que hay que verificar, para asegurar que tenga un error en caso de necesitarlo.
-            cbTipoProducto.Focus(); tNombre.Focus(); tPrecio.Focus();
+            cbTipoProducto.Focus(); tNombre.Focus(); dtFechaVencimiento.Focus(); tPrecio.Focus();
             if (selectedIndex == 0 || selectedIndex == 1) { cbTueste.Focus(); tOrigen.Focus(); }
             else if (selectedIndex == 2) { cbTipoTe.Focus(); }
             else if (selectedIndex == 3) { rtDescripcion.Focus(); }
@@ -55,7 +55,7 @@ namespace DD_Parcial
             else if (selectedIndex == 3 && string.IsNullOrEmpty(ep.GetError(rtDescripcion)))
                 validado = true;
 
-            if (!string.IsNullOrEmpty(ep.GetError(cbTipoProducto)) && !string.IsNullOrEmpty(ep.GetError(tNombre)) && !string.IsNullOrEmpty(ep.GetError(tPrecio)))
+            if (!string.IsNullOrEmpty(ep.GetError(cbTipoProducto)) && !string.IsNullOrEmpty(ep.GetError(tNombre)) && !string.IsNullOrEmpty(ep.GetError(dtFechaVencimiento)) && !string.IsNullOrEmpty(ep.GetError(tPrecio)))
                 validado = false;
 
 
