@@ -91,7 +91,7 @@ namespace DD_Parcial
         private void bGuardar_Click(object sender, EventArgs e)
         {
             int selectedIndex = cbTipoProducto.SelectedIndex;
-            Producto producto = null; //Sacar Warning
+            Producto producto = null; //Sacar warning agregando un booleano e inicializando el producto con producto dummy.
 
             if (!todoValidado())             
                 SystemSounds.Hand.Play();        
