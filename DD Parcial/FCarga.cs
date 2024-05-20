@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,11 +17,13 @@ namespace DD_Parcial
     {
         #region Atributos
         private Coleccion _Coleccion;
+        private FPrincipal _FormularioPrincipal;
         #endregion
-        public FCarga(Coleccion _Coleccion)
+        public FCarga(Coleccion _Coleccion, FPrincipal _FormularioPrincipal)
         {
             InitializeComponent();
-            this._Coleccion = _Coleccion; 
+            this._Coleccion = _Coleccion;
+            this._FormularioPrincipal = _FormularioPrincipal;
         }
 
         #region Funcionalidades
@@ -59,9 +62,34 @@ namespace DD_Parcial
             return validado;
         }
 
+        private void armarProductoBase(Producto producto)
+        {
+            producto.Nombre = tNombre.Text;
+            producto.FechaVencimiento = dtFechaVencimiento.Value;
+            producto.Precio = double.Parse(tPrecio.Text);
+            producto.Stock = (int) nudStock.Value;
+        }
+
+        private void armarCafe(Cafe cafe)
+        {
+            cafe.Tueste = cbTueste.Text;
+            cafe.Origen = tOrigen.Text;
+            cafe.Molido = chMolido.Checked;
+        }
+
         private void bGuardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(todoValidado().ToString());
+            int selectedIndex = cbTipoProducto.SelectedIndex;           
+
+            if (!todoValidado()) //Verifica que todos los campos necesarios estén completos y setea los ErrorProvider en caso contrario.            
+               SystemSounds.Hand.Play();
+            else if(selectedIndex == 0)
+            {
+                Filtro cafeDeFiltro = new Filtro();
+                armarProductoBase(cafeDeFiltro);
+                armarCafe(cafeDeFiltro);              
+            }
+            
         }
         #endregion
 
