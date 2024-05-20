@@ -10,12 +10,13 @@ namespace DD_Parcial
         {
             InitializeComponent();
             _Coleccion = new Coleccion();
-            _FormularioCarga = new FCarga(_Coleccion);            
+            _FormularioCarga = new FCarga(_Coleccion);
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {            
-            _FormularioCarga.Show();
+        {
+            if(_FormularioCarga.IsDisposed) _FormularioCarga = new FCarga(_Coleccion);
+            _FormularioCarga.Show(); _FormularioCarga.BringToFront();
         }
     }
 }
