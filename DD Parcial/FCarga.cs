@@ -91,46 +91,41 @@ namespace DD_Parcial
         private void bGuardar_Click(object sender, EventArgs e)
         {
             int selectedIndex = cbTipoProducto.SelectedIndex;
+            Producto producto = null; //Sacar Warning
 
-            if (!todoValidado()) //Verifica que todos los campos necesarios estén completos y setea los ErrorProvider en caso contrario.            
-                SystemSounds.Hand.Play();
-            else if (selectedIndex == 0)
+            if (!todoValidado())             
+                SystemSounds.Hand.Play();        
+            else
             {
-                Filtro cafeDeFiltro = new Filtro();
-                armarProductoBase(cafeDeFiltro);
-                armarCafe(cafeDeFiltro);
-
-                _Coleccion.Agregar(cafeDeFiltro);
-                MessageBox.Show(cafeDeFiltro.ToString());
+                switch (selectedIndex)
+                {                    
+                    case 0:
+                        producto = new Filtro();
+                        armarCafe((Filtro) producto);  
+                        break;
+                    case 1:
+                        producto = new Espresso();
+                        armarCafe((Espresso) producto);  
+                        break;
+                    case 2:
+                        producto = new Te();
+                        armarTe((Te) producto);  
+                        break;
+                    case 3:
+                        producto = new Infusion();
+                        armarInfusion((Infusion) producto);  
+                        break;                   
+                }
             }
-            else if (selectedIndex == 1)
+            
+            if (producto != null)
             {
-                Espresso cafeDeEspresso = new Espresso();
-                armarProductoBase(cafeDeEspresso);
-                armarCafe(cafeDeEspresso);
-
-                _Coleccion.Agregar(cafeDeEspresso);
-                MessageBox.Show(cafeDeEspresso.ToString());
-            }
-            else if (selectedIndex == 2)
-            {
-                Te te = new Te();
-                armarProductoBase(te);
-                armarTe(te);
-
-                _Coleccion.Agregar(te);
-                MessageBox.Show(te.ToString());
-            }
-            else if (selectedIndex == 3)
-            {
-                Infusion infusion = new Infusion();
-                armarProductoBase(infusion);
-                armarInfusion(infusion);
-
-                _Coleccion.Agregar(infusion);
-                MessageBox.Show(infusion.ToString());
+                armarProductoBase(producto);
+                _Coleccion.Agregar(producto);
+                MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         #endregion
 
         #region Validaciones de campo
