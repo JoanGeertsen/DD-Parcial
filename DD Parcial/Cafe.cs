@@ -65,7 +65,7 @@ namespace DD_Parcial
         public override string ToString()
         {
             string molido= _Molido ? "Molido" : "En grano";
-            return base.ToString() + $" \nTueste: {_Tueste}\n Origen: {_Origen}\n {molido}";
+            return base.ToString() + $"\n Tueste: {_Tueste}\n Origen: {_Origen}\n {molido}";
         }
     }
 }

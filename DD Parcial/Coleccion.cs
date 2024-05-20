@@ -34,10 +34,10 @@ namespace DD_Parcial
         #region consultas
         public List<Producto> Buscar() { return _ListaProductos; }
 
-        public List<Producto> Buscar(Type tipo) 
-        { 
-            return _ListaProductos.FindAll(producto => producto.GetType() == tipo);
-        }        
+        public List<Producto> Buscar(Type tipo)
+        {
+            return _ListaProductos.FindAll(producto => tipo.IsInstanceOfType(producto));
+        }
         #endregion
     }
 }
