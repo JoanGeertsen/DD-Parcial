@@ -163,12 +163,13 @@
             // 
             // dtFechaVencimiento
             // 
+            dtFechaVencimiento.CustomFormat = "dd/MM/yyyy";
             dtFechaVencimiento.Format = DateTimePickerFormat.Short;
             dtFechaVencimiento.Location = new Point(52, 68);
             dtFechaVencimiento.Name = "dtFechaVencimiento";
             dtFechaVencimiento.Size = new Size(78, 23);
             dtFechaVencimiento.TabIndex = 4;
-            dtFechaVencimiento.Value = new DateTime(2024, 5, 19, 0, 0, 0, 0);
+            dtFechaVencimiento.Value = new DateTime(2024, 5, 20, 0, 0, 0, 0);
             dtFechaVencimiento.Validating += dtFechaVencimiento_Validating;
             // 
             // nudStock

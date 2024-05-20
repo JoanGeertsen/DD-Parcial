@@ -32,12 +32,22 @@
             string[] tiposValidos = { "verde", "blanco", "amarillo", "oolong", "negro", "pu-erh" };
             return (tipo != null && tiposValidos.Contains(tipo.Trim().ToLower()));
         }
+        public bool PresentacionEnLata
+        {
+            get { return _PresentacionEnLata; }
+            set { _PresentacionEnLata = value; }
+        }
         #endregion
 
         #region Consultas
         public override double CalcularPrecioFinal()
         {
             return (_PresentacionEnLata) ? _Precio + RecargoPorLata : _Precio;
+        }
+        public override string ToString()
+        {
+            string presentacion = _PresentacionEnLata ? "En lata" : "En sobre";
+            return base.ToString() + $" \n Tipo: {_Tipo}\n {presentacion}";
         }
         #endregion
     }

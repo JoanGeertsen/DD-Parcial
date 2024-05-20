@@ -55,7 +55,7 @@ namespace DD_Parcial
             else if (selectedIndex == 3 && string.IsNullOrEmpty(ep.GetError(rtDescripcion)))
                 validado = true;
 
-            if (!string.IsNullOrEmpty(ep.GetError(cbTipoProducto)) && !string.IsNullOrEmpty(ep.GetError(tNombre)) && !string.IsNullOrEmpty(ep.GetError(dtFechaVencimiento)) && !string.IsNullOrEmpty(ep.GetError(tPrecio)))
+            if (!string.IsNullOrEmpty(ep.GetError(cbTipoProducto)) || !string.IsNullOrEmpty(ep.GetError(tNombre)) || !string.IsNullOrEmpty(ep.GetError(dtFechaVencimiento)) || !string.IsNullOrEmpty(ep.GetError(tPrecio)))
                 validado = false;
 
 
@@ -65,9 +65,9 @@ namespace DD_Parcial
         private void armarProductoBase(Producto producto)
         {
             producto.Nombre = tNombre.Text;
-            producto.FechaVencimiento = dtFechaVencimiento.Value;
+            producto.FechaVencimiento = dtFechaVencimiento.Value.Date;
             producto.Precio = double.Parse(tPrecio.Text);
-            producto.Stock = (int) nudStock.Value;
+            producto.Stock = (int)nudStock.Value;
         }
 
         private void armarCafe(Cafe cafe)
@@ -77,19 +77,59 @@ namespace DD_Parcial
             cafe.Molido = chMolido.Checked;
         }
 
+        private void armarTe(Te te)
+        {
+            te.Tipo = cbTipoTe.Text;
+            te.PresentacionEnLata = chPresentacion.Checked;
+        }
+
+        private void armarInfusion(Infusion infusion)
+        {
+            infusion.Descripcion = rtDescripcion.Text;
+        }
+
         private void bGuardar_Click(object sender, EventArgs e)
         {
-            int selectedIndex = cbTipoProducto.SelectedIndex;           
+            int selectedIndex = cbTipoProducto.SelectedIndex;
 
             if (!todoValidado()) //Verifica que todos los campos necesarios estén completos y setea los ErrorProvider en caso contrario.            
-               SystemSounds.Hand.Play();
-            else if(selectedIndex == 0)
+                SystemSounds.Hand.Play();
+            else if (selectedIndex == 0)
             {
                 Filtro cafeDeFiltro = new Filtro();
                 armarProductoBase(cafeDeFiltro);
-                armarCafe(cafeDeFiltro);              
+                armarCafe(cafeDeFiltro);
+
+                _Coleccion.Agregar(cafeDeFiltro);
+                MessageBox.Show(cafeDeFiltro.ToString());
             }
-            
+            else if (selectedIndex == 1)
+            {
+                Espresso cafeDeEspresso = new Espresso();
+                armarProductoBase(cafeDeEspresso);
+                armarCafe(cafeDeEspresso);
+
+                _Coleccion.Agregar(cafeDeEspresso);
+                MessageBox.Show(cafeDeEspresso.ToString());
+            }
+            else if (selectedIndex == 2)
+            {
+                Te te = new Te();
+                armarProductoBase(te);
+                armarTe(te);
+
+                _Coleccion.Agregar(te);
+                MessageBox.Show(te.ToString());
+            }
+            else if (selectedIndex == 3)
+            {
+                Infusion infusion = new Infusion();
+                armarProductoBase(infusion);
+                armarInfusion(infusion);
+
+                _Coleccion.Agregar(infusion);
+                MessageBox.Show(infusion.ToString());
+            }
         }
         #endregion
 

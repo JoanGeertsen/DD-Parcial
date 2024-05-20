@@ -57,6 +57,11 @@ namespace DD_Parcial
 
         #region Consultas
         public abstract double CalcularPrecioFinal();
+
+        public override string ToString()
+        {
+            return $" {_Nombre} \n Precio: ${_Precio} \n Valor final: {CalcularPrecioFinal()} \n Vencimiento: {_FechaVencimiento}\n Stock: {_Stock}";
+        }
         #endregion
     }
 }
