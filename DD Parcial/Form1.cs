@@ -32,10 +32,10 @@ namespace DD_Parcial
             if (selectedIndex == 3) { pCafe.Enabled = false; pTe.Enabled = false; tipoSeleccionado = typeof(Infusion); }
 
             lbProductos.Items.Clear();
-           
+
             List<Producto> aux = _Coleccion.Buscar(tipoSeleccionado);
-            foreach (Producto p in aux)                
-                lbProductos.Items.Add(p.ToString());                      
+            foreach (Producto p in aux)
+                lbProductos.Items.Add(p.ToString());
         }
 
         private void cbFiltros_SelectedIndexChanged(object sender, EventArgs e)

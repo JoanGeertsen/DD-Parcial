@@ -31,6 +31,7 @@
             lbProductos = new ListBox();
             cbFiltros = new ComboBox();
             pCafe = new Panel();
+            cbTueste = new ComboBox();
             chEspresso = new CheckBox();
             chFiltro = new CheckBox();
             label1 = new Label();
@@ -40,11 +41,10 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            cbTueste = new ComboBox();
             pTe = new Panel();
+            cbTipoTe = new ComboBox();
             chEnLata = new CheckBox();
             label2 = new Label();
-            cbTipoTe = new ComboBox();
             pCafe.SuspendLayout();
             pTe.SuspendLayout();
             SuspendLayout();
@@ -52,6 +52,8 @@
             // lbProductos
             // 
             lbProductos.FormattingEnabled = true;
+            lbProductos.HorizontalExtent = 800;
+            lbProductos.HorizontalScrollbar = true;
             lbProductos.ItemHeight = 15;
             lbProductos.Location = new Point(12, 12);
             lbProductos.Name = "lbProductos";
@@ -81,6 +83,16 @@
             pCafe.Name = "pCafe";
             pCafe.Size = new Size(145, 123);
             pCafe.TabIndex = 2;
+            // 
+            // cbTueste
+            // 
+            cbTueste.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTueste.FormattingEnabled = true;
+            cbTueste.Items.AddRange(new object[] { "Todos", "Bajo", "Medio", "Alto" });
+            cbTueste.Location = new Point(9, 84);
+            cbTueste.Name = "cbTueste";
+            cbTueste.Size = new Size(121, 23);
+            cbTueste.TabIndex = 7;
             // 
             // chEspresso
             // 
@@ -187,16 +199,6 @@
             button5.Text = "Acerca de";
             button5.UseVisualStyleBackColor = false;
             // 
-            // cbTueste
-            // 
-            cbTueste.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTueste.FormattingEnabled = true;
-            cbTueste.Items.AddRange(new object[] { "Todos", "Bajo", "Medio", "Alto" });
-            cbTueste.Location = new Point(9, 84);
-            cbTueste.Name = "cbTueste";
-            cbTueste.Size = new Size(121, 23);
-            cbTueste.TabIndex = 7;
-            // 
             // pTe
             // 
             pTe.BackColor = Color.Tan;
@@ -208,6 +210,16 @@
             pTe.Name = "pTe";
             pTe.Size = new Size(145, 84);
             pTe.TabIndex = 8;
+            // 
+            // cbTipoTe
+            // 
+            cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipoTe.FormattingEnabled = true;
+            cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
+            cbTipoTe.Location = new Point(9, 26);
+            cbTipoTe.Name = "cbTipoTe";
+            cbTipoTe.Size = new Size(121, 23);
+            cbTipoTe.TabIndex = 8;
             // 
             // chEnLata
             // 
@@ -229,16 +241,6 @@
             label2.Size = new Size(18, 15);
             label2.TabIndex = 4;
             label2.Text = "Té";
-            // 
-            // cbTipoTe
-            // 
-            cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTipoTe.FormattingEnabled = true;
-            cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
-            cbTipoTe.Location = new Point(9, 26);
-            cbTipoTe.Name = "cbTipoTe";
-            cbTipoTe.Size = new Size(121, 23);
-            cbTipoTe.TabIndex = 8;
             // 
             // FPrincipal
             // 
