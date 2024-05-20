@@ -21,13 +21,29 @@ namespace DD_Parcial
             _FormularioCarga.Show(); _FormularioCarga.BringToFront();
         }
 
-        private void cbFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        public void actualizarListBoxYControles()
         {
             int selectedIndex = cbFiltros.SelectedIndex;
 
-            if (selectedIndex == 0) { pCafe.Enabled = true; }        
+            if (selectedIndex == 0) { pCafe.Enabled = true; pTe.Enabled = true; }
+            if (selectedIndex == 1) { pCafe.Enabled = true; pTe.Enabled = false; }
+            if (selectedIndex == 2) { pCafe.Enabled = false; pTe.Enabled = true; }
+            if (selectedIndex == 3) { pCafe.Enabled = false; pTe.Enabled = false; }
 
+            lbProductos.Items.Clear();
+            if(selectedIndex == 0)
+            {                
+                List<Producto> aux = _Coleccion.Buscar();               
+                foreach (Producto p in aux)
+                {
+                    lbProductos.Items.Add(p.ToString());
+                }
+            }
+        }
 
+        private void cbFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actualizarListBoxYControles();
         }
     }
 }

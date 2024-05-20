@@ -40,7 +40,13 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            cbTueste = new ComboBox();
+            pTe = new Panel();
+            chEnLata = new CheckBox();
+            label2 = new Label();
+            cbTipoTe = new ComboBox();
             pCafe.SuspendLayout();
+            pTe.SuspendLayout();
             SuspendLayout();
             // 
             // lbProductos
@@ -66,13 +72,14 @@
             // pCafe
             // 
             pCafe.BackColor = Color.Tan;
+            pCafe.Controls.Add(cbTueste);
             pCafe.Controls.Add(chEspresso);
             pCafe.Controls.Add(chFiltro);
             pCafe.Controls.Add(label1);
             pCafe.Enabled = false;
             pCafe.Location = new Point(302, 41);
             pCafe.Name = "pCafe";
-            pCafe.Size = new Size(145, 128);
+            pCafe.Size = new Size(145, 123);
             pCafe.TabIndex = 2;
             // 
             // chEspresso
@@ -111,9 +118,9 @@
             // pDatos
             // 
             pDatos.BackColor = Color.Wheat;
-            pDatos.Location = new Point(302, 247);
+            pDatos.Location = new Point(302, 260);
             pDatos.Name = "pDatos";
-            pDatos.Size = new Size(145, 69);
+            pDatos.Size = new Size(145, 56);
             pDatos.TabIndex = 4;
             // 
             // button1
@@ -180,11 +187,65 @@
             button5.Text = "Acerca de";
             button5.UseVisualStyleBackColor = false;
             // 
+            // cbTueste
+            // 
+            cbTueste.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTueste.FormattingEnabled = true;
+            cbTueste.Items.AddRange(new object[] { "Todos", "Bajo", "Medio", "Alto" });
+            cbTueste.Location = new Point(9, 84);
+            cbTueste.Name = "cbTueste";
+            cbTueste.Size = new Size(121, 23);
+            cbTueste.TabIndex = 7;
+            // 
+            // pTe
+            // 
+            pTe.BackColor = Color.Tan;
+            pTe.Controls.Add(cbTipoTe);
+            pTe.Controls.Add(chEnLata);
+            pTe.Controls.Add(label2);
+            pTe.Enabled = false;
+            pTe.Location = new Point(302, 170);
+            pTe.Name = "pTe";
+            pTe.Size = new Size(145, 84);
+            pTe.TabIndex = 8;
+            // 
+            // chEnLata
+            // 
+            chEnLata.AutoSize = true;
+            chEnLata.Checked = true;
+            chEnLata.CheckState = CheckState.Checked;
+            chEnLata.Location = new Point(9, 55);
+            chEnLata.Name = "chEnLata";
+            chEnLata.Size = new Size(132, 19);
+            chEnLata.TabIndex = 5;
+            chEnLata.Text = "Presentación en lata";
+            chEnLata.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(9, 8);
+            label2.Name = "label2";
+            label2.Size = new Size(18, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Té";
+            // 
+            // cbTipoTe
+            // 
+            cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipoTe.FormattingEnabled = true;
+            cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
+            cbTipoTe.Location = new Point(9, 26);
+            cbTipoTe.Name = "cbTipoTe";
+            cbTipoTe.Size = new Size(121, 23);
+            cbTipoTe.TabIndex = 8;
+            // 
             // FPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(463, 383);
+            Controls.Add(pTe);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -199,6 +260,8 @@
             Text = "Principal";
             pCafe.ResumeLayout(false);
             pCafe.PerformLayout();
+            pTe.ResumeLayout(false);
+            pTe.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -216,5 +279,10 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private ComboBox cbTueste;
+        private Panel pTe;
+        private ComboBox cbTipoTe;
+        private CheckBox chEnLata;
+        private Label label2;
     }
 }

@@ -60,7 +60,7 @@ namespace DD_Parcial
 
 
             return validado;
-        }
+        }    
 
         private void armarProductoBase(Producto producto)
         {
@@ -123,6 +123,7 @@ namespace DD_Parcial
                 armarProductoBase(producto);
                 _Coleccion.Agregar(producto);
                 MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _FormularioPrincipal.actualizarListBoxYControles();
             }
         }
 
