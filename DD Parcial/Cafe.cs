@@ -66,22 +66,6 @@ namespace DD_Parcial
         {
             string molido= _Molido ? "Molido" : "En grano";
             return base.ToString() + $"\n Tueste: {_Tueste}\n Origen: {_Origen}\n {molido}";
-        }
-
-        public override bool Equals(object? obj)
-        {//Son iguales si tienen igual código y además estan molidos de igual forma.
-            bool igual = false;
-            if (base.Equals(obj))
-            {
-                Cafe c = (Cafe)obj;
-                igual = _Molido == c.Molido;
-            }
-            return igual;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode() + (int.Parse(_Tueste) * int.Parse(_Origen));
-        }
+        }        
     }
 }

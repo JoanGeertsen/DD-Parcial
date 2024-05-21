@@ -30,52 +30,61 @@ namespace DD_Parcial
             else if (selectedIndex == 3) { pCafe.Enabled = false; pTe.Enabled = false; }
         }
 
-        public void actualizarListBoxYControles()
+        private List<Producto> obtenerLista()
         {
-            habilitarControles();
             int selectedIndex = cbFiltros.SelectedIndex;
-            lbProductos.Items.Clear();
 
-            List<Producto> listaMostrar = _Coleccion.Buscar(); //Todos los productos
+            List<Producto> lista = _Coleccion.Buscar(); //Todos los productos
 
             if (selectedIndex == 1 && chFiltro.Checked && chEspresso.Checked) //Café
             {
                 if ((cbTueste.SelectedIndex == -1 || cbTueste.SelectedIndex == 0)) //Todos los tuestes
-                    listaMostrar = _Coleccion.Buscar(typeof(Cafe));
-                else listaMostrar = _Coleccion.Buscar(cbTueste.Text.Replace("Tueste", "").Trim(), typeof(Cafe)); //Cafe tueste especifico
+                    lista = _Coleccion.Buscar(typeof(Cafe));
+                else lista = _Coleccion.Buscar(cbTueste.Text.Replace("Tueste", "").Trim(), typeof(Cafe)); //Cafe tueste especifico
             }
 
             else if (selectedIndex == 1 && chFiltro.Checked && !chEspresso.Checked) //Café para filtro
             {
                 if ((cbTueste.SelectedIndex == -1 || cbTueste.SelectedIndex == 0))
-                    listaMostrar = _Coleccion.Buscar(typeof(Filtro));
-                else listaMostrar = _Coleccion.Buscar(cbTueste.Text.Replace("Tueste", "").Trim(), typeof(Filtro));
+                    lista = _Coleccion.Buscar(typeof(Filtro));
+                else lista = _Coleccion.Buscar(cbTueste.Text.Replace("Tueste", "").Trim(), typeof(Filtro));
             }
 
             if (selectedIndex == 1 && !chFiltro.Checked && chEspresso.Checked) //Café para espresso
             {
                 if ((cbTueste.SelectedIndex == -1 || cbTueste.SelectedIndex == 0))
-                    listaMostrar = _Coleccion.Buscar(typeof(Espresso));
-                else listaMostrar = _Coleccion.Buscar(cbTueste.Text.Replace("Tueste", "").Trim(), typeof(Espresso));
+                    lista = _Coleccion.Buscar(typeof(Espresso));
+                else lista = _Coleccion.Buscar(cbTueste.Text.Replace("Tueste", "").Trim(), typeof(Espresso));
             }
 
             else if (selectedIndex == 2)//Té
             {
                 if (rbCualquiea.Checked && (cbTipoTe.SelectedIndex == -1 || cbTipoTe.SelectedIndex == 0))
-                    listaMostrar = _Coleccion.Buscar(typeof(Te));
+                    lista = _Coleccion.Buscar(typeof(Te));
 
                 else if (rbCualquiea.Checked && !(cbTipoTe.SelectedIndex == -1 || cbTipoTe.SelectedIndex == 0))
-                    listaMostrar = _Coleccion.Buscar(cbTipoTe.Text.ToLower(), typeof(Te));
+                    lista = _Coleccion.Buscar(cbTipoTe.Text.ToLower(), typeof(Te));
 
                 else if ((rbLata.Checked || rbSobre.Checked) && (cbTipoTe.SelectedIndex == -1 || cbTipoTe.SelectedIndex == 0))
-                    listaMostrar = _Coleccion.Buscar(rbLata.Checked, typeof(Te));
+                    lista = _Coleccion.Buscar(rbLata.Checked, typeof(Te));
 
                 else if ((rbLata.Checked || rbSobre.Checked) && !(cbTipoTe.SelectedIndex == -1 || cbTipoTe.SelectedIndex == 0))
-                    listaMostrar = _Coleccion.Buscar(rbLata.Checked, cbTipoTe.Text.ToLower(), typeof(Te));
+                    lista = _Coleccion.Buscar(rbLata.Checked, cbTipoTe.Text.ToLower(), typeof(Te));
             }
 
             else if (selectedIndex == 3)//Infusión           
-                listaMostrar = _Coleccion.Buscar(typeof(Infusion));
+                lista = _Coleccion.Buscar(typeof(Infusion));
+
+            return lista;
+        }
+
+        public void actualizarListBoxYControles()
+        {
+            habilitarControles();
+
+            lbProductos.Items.Clear();
+
+            List<Producto> listaMostrar = obtenerLista();
 
             foreach (Producto p in listaMostrar)
                 lbProductos.Items.Add(p.ToString());
@@ -96,7 +105,18 @@ namespace DD_Parcial
 
         private void bEliminar_Click(object sender, EventArgs e)
         {
-
+            if (lbProductos.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un item del listado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (lbProductos.Items.Count > 0) lbProductos.SetSelected(0, true);
+            }
+            else
+            {
+                List<Producto> lista = obtenerLista();
+                Producto producto = lista[lbProductos.SelectedIndex];
+                _Coleccion.Eliminar(producto);
+                actualizarListBoxYControles();
+            }
         }
         #endregion
 
@@ -142,6 +162,11 @@ namespace DD_Parcial
         {
             actualizarListBoxYControles();
         }
-        #endregion       
+        #endregion
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -39,6 +39,10 @@ namespace DD_Parcial
         {
             return _ListaProductos.FindAll(producto => tipo.IsInstanceOfType(producto));
         }
+        public List<Producto> Buscar(int codigo)
+        {
+            return _ListaProductos.FindAll(producto => producto.Codigo == codigo);
+        }
 
         public List<Producto> Buscar(string caracteristica, Type tipo)
         {

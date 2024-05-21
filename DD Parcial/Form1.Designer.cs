@@ -39,8 +39,8 @@
             button1 = new Button();
             button2 = new Button();
             bEliminar = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            bSalir = new Button();
+            bAcercaDe = new Button();
             pTe = new Panel();
             rbSobre = new RadioButton();
             rbLata = new RadioButton();
@@ -182,29 +182,30 @@
             bEliminar.UseVisualStyleBackColor = false;
             bEliminar.Click += bEliminar_Click;
             // 
-            // button4
+            // bSalir
             // 
-            button4.BackColor = Color.WhiteSmoke;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(302, 322);
-            button4.Name = "button4";
-            button4.Size = new Size(67, 39);
-            button4.TabIndex = 7;
-            button4.Text = "Salir";
-            button4.UseVisualStyleBackColor = false;
+            bSalir.BackColor = Color.WhiteSmoke;
+            bSalir.FlatStyle = FlatStyle.Flat;
+            bSalir.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            bSalir.Location = new Point(302, 322);
+            bSalir.Name = "bSalir";
+            bSalir.Size = new Size(67, 39);
+            bSalir.TabIndex = 7;
+            bSalir.Text = "Salir";
+            bSalir.UseVisualStyleBackColor = false;
+            bSalir.Click += bSalir_Click;
             // 
-            // button5
+            // bAcercaDe
             // 
-            button5.BackColor = Color.WhiteSmoke;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(388, 322);
-            button5.Name = "button5";
-            button5.Size = new Size(72, 39);
-            button5.TabIndex = 8;
-            button5.Text = "Acerca de";
-            button5.UseVisualStyleBackColor = false;
+            bAcercaDe.BackColor = Color.WhiteSmoke;
+            bAcercaDe.FlatStyle = FlatStyle.Flat;
+            bAcercaDe.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            bAcercaDe.Location = new Point(388, 322);
+            bAcercaDe.Name = "bAcercaDe";
+            bAcercaDe.Size = new Size(72, 39);
+            bAcercaDe.TabIndex = 8;
+            bAcercaDe.Text = "Acerca de";
+            bAcercaDe.UseVisualStyleBackColor = false;
             // 
             // pTe
             // 
@@ -281,8 +282,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(472, 383);
             Controls.Add(pTe);
-            Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(bAcercaDe);
+            Controls.Add(bSalir);
             Controls.Add(bEliminar);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -312,8 +313,8 @@
         private Button button1;
         private Button button2;
         private Button bEliminar;
-        private Button button4;
-        private Button button5;
+        private Button bSalir;
+        private Button bAcercaDe;
         private ComboBox cbTueste;
         private Panel pTe;
         private ComboBox cbTipoTe;

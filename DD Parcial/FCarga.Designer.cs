@@ -248,7 +248,7 @@
             cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
             cbTipoTe.Location = new Point(50, 4);
             cbTipoTe.Name = "cbTipoTe";
-            cbTipoTe.Size = new Size(63, 23);
+            cbTipoTe.Size = new Size(93, 23);
             cbTipoTe.TabIndex = 0;
             cbTipoTe.Validating += cbTipoTe_Validating;
             // 

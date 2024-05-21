@@ -56,7 +56,7 @@ namespace DD_Parcial
             else if (selectedIndex == 3 && string.IsNullOrEmpty(ep.GetError(rtDescripcion)))
                 validado = true;
 
-            if (!string.IsNullOrEmpty(ep.GetError(cbTipoProducto)) || !string.IsNullOrEmpty(ep.GetError(tNombre)) || !string.IsNullOrEmpty(ep.GetError(dtFechaVencimiento)) || !string.IsNullOrEmpty(ep.GetError(tPrecio)))
+            if (!string.IsNullOrEmpty(ep.GetError(cbTipoProducto)) || !string.IsNullOrEmpty(ep.GetError(tNombre)) || !string.IsNullOrEmpty(ep.GetError(tCodigo)) || !string.IsNullOrEmpty(ep.GetError(dtFechaVencimiento)) || !string.IsNullOrEmpty(ep.GetError(tPrecio)))
                 validado = false;
 
 
@@ -92,7 +92,7 @@ namespace DD_Parcial
 
         private void LimpiarCampos()
         {
-            tNombre.Clear(); tPrecio.Clear(); nudStock.Value = 0;
+            tNombre.Clear(); tCodigo.Clear(); tPrecio.Clear(); nudStock.Value = 0;
             cbTueste.SelectedIndex = -1; tOrigen.Clear(); chMolido.Checked = false;
             cbTipoTe.SelectedIndex = -1; chPresentacion.Checked = false;
             rtDescripcion.Clear();
@@ -102,8 +102,8 @@ namespace DD_Parcial
 
         private bool Existe(Producto p)
         {
-            List<Producto> lista = _Coleccion.Buscar();
-            return lista.Contains(p);
+            List<Producto> lista = _Coleccion.Buscar(p.Codigo);
+            return lista.Count > 0;
         }
 
         private void bGuardar_Click(object sender, EventArgs e)
@@ -140,7 +140,11 @@ namespace DD_Parcial
             {
                 ArmarProductoBase(producto);
 
-                if (Existe(producto)) MessageBox.Show("Producto ya cargado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Existe(producto))
+                {
+                    MessageBox.Show("Ya existe producto con ese código", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tCodigo.Focus(); ep.SetError(tCodigo, "Código repetido");
+                }
                 else
                 {
                     _Coleccion.Agregar(producto);
@@ -201,7 +205,7 @@ namespace DD_Parcial
         }
         private void tCodigo_Validated(object sender, EventArgs e)
         {
-            if (tCodigo.Text == "Código") ep.SetError(tCodigo, "Código inválido");
+            if (tCodigo.Text == "Código" || int.Parse(tCodigo.Text) <= 0) ep.SetError(tCodigo, "Código inválido");
             else ep.SetError(tCodigo, "");
         }
         #endregion
