@@ -80,7 +80,7 @@ namespace DD_Parcial
             else if(this.GetType() == obj.GetType())
             {
                 Producto p = (Producto) obj;
-                igual = (_Nombre == p.Nombre);
+                igual = (_Codigo == p.Codigo);
             }
             return igual;         
         }

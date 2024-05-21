@@ -69,12 +69,12 @@ namespace DD_Parcial
         }
 
         public override bool Equals(object? obj)
-        {
+        {//Son iguales si tienen igual código y además estan molidos de igual forma.
             bool igual = false;
             if (base.Equals(obj))
             {
                 Cafe c = (Cafe)obj;
-                igual = _Tueste == c.Tueste && _Origen == c.Origen && _Molido == c.Molido;
+                igual = _Molido == c.Molido;
             }
             return igual;
         }
