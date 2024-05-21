@@ -67,5 +67,21 @@ namespace DD_Parcial
             string molido= _Molido ? "Molido" : "En grano";
             return base.ToString() + $"\n Tueste: {_Tueste}\n Origen: {_Origen}\n {molido}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            bool igual = false;
+            if (base.Equals(obj))
+            {
+                Cafe c = (Cafe)obj;
+                igual = _Tueste == c.Tueste && _Origen == c.Origen && _Molido == c.Molido;
+            }
+            return igual;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode() + (int.Parse(_Tueste) * int.Parse(_Origen));
+        }
     }
 }

@@ -62,6 +62,25 @@ namespace DD_Parcial
         {
             return $" {_Nombre} \n Precio: ${_Precio} \n Valor final: {CalcularPrecioFinal()} \n Vencimiento: {_FechaVencimiento}\n Stock: {_Stock}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            bool igual = false;
+
+            if(obj == null)
+                igual = (this == null);
+            else if(this.GetType() == obj.GetType())
+            {
+                Producto p = (Producto) obj;
+                igual = (_Nombre == p.Nombre);
+            }
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return int.Parse(_Nombre) * _Stock;
+        }
         #endregion
     }
 }
