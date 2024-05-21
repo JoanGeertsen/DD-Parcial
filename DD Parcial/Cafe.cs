@@ -19,7 +19,7 @@ namespace DD_Parcial
         #region Constructores
         public Cafe(): base() { _Tueste = TuestePorDefecto; _Origen = "Desconocido"; _Molido = false; }
 
-        public Cafe(string _Nombre, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido) : base(_Nombre, _FechaVencimiento, _Stock, _Precio)
+        public Cafe(string _Nombre, int _Codigo, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido) : base(_Nombre, _Codigo, _FechaVencimiento, _Stock, _Precio)
         {
             this._Tueste = (TuesteValido(_Tueste)) ? _Tueste : TuestePorDefecto;
             this._Origen = (_Origen != null && _Origen.Trim() != "") ? _Origen : "Desconocido";

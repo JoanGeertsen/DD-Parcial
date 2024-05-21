@@ -38,7 +38,7 @@
             pDatos = new Panel();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            bEliminar = new Button();
             button4 = new Button();
             button5 = new Button();
             pTe = new Panel();
@@ -168,18 +168,19 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // button3
+            // bEliminar
             // 
-            button3.BackColor = Color.IndianRed;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(212, 322);
-            button3.Name = "button3";
-            button3.Size = new Size(84, 39);
-            button3.TabIndex = 6;
-            button3.Text = "Eliminar";
-            button3.UseVisualStyleBackColor = false;
+            bEliminar.BackColor = Color.IndianRed;
+            bEliminar.FlatStyle = FlatStyle.Flat;
+            bEliminar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            bEliminar.ForeColor = SystemColors.ActiveCaptionText;
+            bEliminar.Location = new Point(212, 322);
+            bEliminar.Name = "bEliminar";
+            bEliminar.Size = new Size(84, 39);
+            bEliminar.TabIndex = 6;
+            bEliminar.Text = "Eliminar";
+            bEliminar.UseVisualStyleBackColor = false;
+            bEliminar.Click += bEliminar_Click;
             // 
             // button4
             // 
@@ -282,7 +283,7 @@
             Controls.Add(pTe);
             Controls.Add(button5);
             Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(bEliminar);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(pDatos);
@@ -310,7 +311,7 @@
         private Panel pDatos;
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button bEliminar;
         private Button button4;
         private Button button5;
         private ComboBox cbTueste;

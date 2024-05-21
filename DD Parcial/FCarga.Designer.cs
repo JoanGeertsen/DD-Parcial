@@ -50,6 +50,7 @@
             ep = new ErrorProvider(components);
             label5 = new Label();
             tPrecio = new TextBox();
+            tCodigo = new TextBox();
             pCafe.SuspendLayout();
             pInfusion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
@@ -64,7 +65,7 @@
             cbTipoProducto.Items.AddRange(new object[] { "Café para Filtrados", "Café para Espressos ", "Té", "Infusiones" });
             cbTipoProducto.Location = new Point(12, 12);
             cbTipoProducto.Name = "cbTipoProducto";
-            cbTipoProducto.Size = new Size(210, 23);
+            cbTipoProducto.Size = new Size(134, 23);
             cbTipoProducto.TabIndex = 0;
             cbTipoProducto.SelectedIndexChanged += cbTipoProducto_SelectedIndexChanged;
             cbTipoProducto.Validating += cbTipoProducto_Validating;
@@ -169,7 +170,7 @@
             dtFechaVencimiento.Name = "dtFechaVencimiento";
             dtFechaVencimiento.Size = new Size(78, 23);
             dtFechaVencimiento.TabIndex = 4;
-            dtFechaVencimiento.Value = new DateTime(2024, 5, 20, 0, 0, 0, 0);
+            dtFechaVencimiento.Value = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             dtFechaVencimiento.Validating += dtFechaVencimiento_Validating;
             // 
             // nudStock
@@ -278,11 +279,26 @@
             tPrecio.Leave += tPrecio_Leave;
             tPrecio.Validating += tPrecio_Validating;
             // 
+            // tCodigo
+            // 
+            tCodigo.BackColor = Color.WhiteSmoke;
+            tCodigo.ForeColor = SystemColors.InactiveCaption;
+            tCodigo.Location = new Point(164, 12);
+            tCodigo.Name = "tCodigo";
+            tCodigo.Size = new Size(58, 23);
+            tCodigo.TabIndex = 11;
+            tCodigo.Text = "Código";
+            tCodigo.Enter += tCodigo_Enter;
+            tCodigo.KeyPress += tCodigo_KeyPress;
+            tCodigo.Leave += tCodigo_Leave;
+            tCodigo.Validated += tCodigo_Validated;
+            // 
             // FCarga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(240, 262);
+            Controls.Add(tCodigo);
             Controls.Add(tPrecio);
             Controls.Add(label5);
             Controls.Add(pInfusion);
@@ -331,5 +347,6 @@
         private ErrorProvider ep;
         private TextBox tPrecio;
         private Label label5;
+        private TextBox tCodigo;
     }
 }

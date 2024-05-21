@@ -43,7 +43,7 @@ namespace DD_Parcial
             ep.Clear();
 
             //Recorre todos los controles que hay que verificar, para asegurar que tenga un error en caso de necesitarlo.
-            cbTipoProducto.Focus(); tNombre.Focus(); dtFechaVencimiento.Focus(); tPrecio.Focus();
+            cbTipoProducto.Focus(); tNombre.Focus(); tCodigo.Focus(); dtFechaVencimiento.Focus(); tPrecio.Focus();
             if (selectedIndex == 0 || selectedIndex == 1) { cbTueste.Focus(); tOrigen.Focus(); }
             else if (selectedIndex == 2) { cbTipoTe.Focus(); }
             else if (selectedIndex == 3) { rtDescripcion.Focus(); }
@@ -61,11 +61,12 @@ namespace DD_Parcial
 
 
             return validado;
-        }    
+        }
 
         private void ArmarProductoBase(Producto producto)
         {
             producto.Nombre = tNombre.Text;
+            producto.Codigo = int.Parse(tCodigo.Text);
             producto.FechaVencimiento = dtFechaVencimiento.Value.Date;
             producto.Precio = double.Parse(tPrecio.Text);
             producto.Stock = (int)nudStock.Value;
@@ -110,31 +111,31 @@ namespace DD_Parcial
             int selectedIndex = cbTipoProducto.SelectedIndex;
             Producto? producto = null;
 
-            if (!TodoValidado())             
-                SystemSounds.Hand.Play();        
+            if (!TodoValidado())
+                SystemSounds.Hand.Play();
             else
             {
                 switch (selectedIndex)
-                {                    
+                {
                     case 0:
                         producto = new Filtro();
-                        ArmarCafe((Filtro) producto);  
+                        ArmarCafe((Filtro)producto);
                         break;
                     case 1:
                         producto = new Espresso();
-                        ArmarCafe((Espresso) producto);  
+                        ArmarCafe((Espresso)producto);
                         break;
                     case 2:
                         producto = new Te();
-                        ArmarTe((Te) producto);  
+                        ArmarTe((Te)producto);
                         break;
                     case 3:
                         producto = new Infusion();
-                        ArmarInfusion((Infusion) producto);  
-                        break;                   
+                        ArmarInfusion((Infusion)producto);
+                        break;
                 }
             }
-            
+
             if (producto != null)
             {
                 ArmarProductoBase(producto);
@@ -146,7 +147,7 @@ namespace DD_Parcial
                     MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _FormularioPrincipal.actualizarListBoxYControles();
                     LimpiarCampos();
-                }              
+                }
             }
         }
         #endregion
@@ -197,6 +198,11 @@ namespace DD_Parcial
         {
             if (rtDescripcion.Text == "Descripción...") ep.SetError(rtDescripcion, "Descripción inválida");
             else ep.SetError(rtDescripcion, "");
+        }
+        private void tCodigo_Validated(object sender, EventArgs e)
+        {
+            if (tCodigo.Text == "Código") ep.SetError(tCodigo, "Código inválido");
+            else ep.SetError(tCodigo, "");
         }
         #endregion
 
@@ -271,13 +277,34 @@ namespace DD_Parcial
                 tPrecio.ForeColor = Color.Gray;
             }
         }
+        private void tCodigo_Enter(object sender, EventArgs e)
+        {
+            if (tCodigo.Text == "Código")
+            {
+                tCodigo.Text = "";
+                tCodigo.ForeColor = Color.Black;
+            }
+        }
+
+        private void tCodigo_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tCodigo.Text))
+            {
+                tCodigo.Text = "Código";
+                tCodigo.ForeColor = Color.Gray;
+            }
+        }
         #endregion
 
         #region KeyPress
         private void tPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
-
+                e.Handled = true;
+        }
+        private void tCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
         #endregion        
