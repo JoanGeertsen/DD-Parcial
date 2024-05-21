@@ -90,13 +90,13 @@ namespace DD_Parcial
 
         private void chFiltro_CheckedChanged(object sender, EventArgs e)
         {
-            if (!chEspresso.Checked) chFiltro.Checked = true; 
-                actualizarListBoxYControles();
+            if (!chEspresso.Checked) chFiltro.Checked = true;
+            actualizarListBoxYControles();
         }
 
         private void chEspresso_CheckedChanged(object sender, EventArgs e)
         {
-            if (!chFiltro.Checked)  chEspresso.Checked = true;
+            if (!chFiltro.Checked) chEspresso.Checked = true;
             actualizarListBoxYControles();
         }
 
@@ -125,5 +125,19 @@ namespace DD_Parcial
             actualizarListBoxYControles();
         }
         #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(lbProductos.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un item del listado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (lbProductos.Items.Count > 0) lbProductos.SetSelected(0, true);
+            }
+            else
+            {
+                if (_FormularioCarga.IsDisposed) _FormularioCarga = new FCarga(_Coleccion, this);
+                _FormularioCarga.Show(); _FormularioCarga.BringToFront();
+            }
+        }
     }
 }
