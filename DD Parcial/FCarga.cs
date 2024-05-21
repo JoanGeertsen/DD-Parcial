@@ -88,6 +88,16 @@ namespace DD_Parcial
             infusion.Descripcion = rtDescripcion.Text;
         }
 
+        private void limpiarCampos()
+        {
+            tNombre.Clear(); tPrecio.Clear(); nudStock.Value = 0;
+            cbTueste.SelectedIndex = -1; tOrigen.Clear(); chMolido.Checked = false;
+            cbTipoTe.SelectedIndex = -1; chPresentacion.Checked = false;
+            rtDescripcion.Clear();
+
+            todoValidado(); ep.Clear();
+        }
+
         private void bGuardar_Click(object sender, EventArgs e)
         {
             int selectedIndex = cbTipoProducto.SelectedIndex;
@@ -124,6 +134,7 @@ namespace DD_Parcial
                 _Coleccion.Agregar(producto);
                 MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _FormularioPrincipal.actualizarListBoxYControles();
+                limpiarCampos();
             }
         }
 

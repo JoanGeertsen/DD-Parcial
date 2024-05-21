@@ -15,6 +15,7 @@ namespace DD_Parcial
             _FormularioCarga = new FCarga(_Coleccion, this);
         }
 
+        #region Funcionalidades
         private void button1_Click(object sender, EventArgs e)
         {
             if (_FormularioCarga.IsDisposed) _FormularioCarga = new FCarga(_Coleccion, this);
@@ -79,7 +80,9 @@ namespace DD_Parcial
             foreach (Producto p in listaMostrar)
                 lbProductos.Items.Add(p.ToString());
         }
+        #endregion
 
+        #region Paneles
         private void cbFiltros_SelectedIndexChanged(object sender, EventArgs e)
         {
             actualizarListBoxYControles();
@@ -121,5 +124,6 @@ namespace DD_Parcial
         {
             actualizarListBoxYControles();
         }
+        #endregion
     }
 }
