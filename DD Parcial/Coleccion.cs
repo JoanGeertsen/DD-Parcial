@@ -52,7 +52,7 @@ namespace DD_Parcial
                 listaRetorno = _ListaProductos.FindAll(producto => tipo.IsInstanceOfType(producto) &&
                 producto is Filtro cafe && cafe.Tueste.ToLower() == caracteristica.ToLower());
 
-            else if (tipo == typeof(Cafe))
+            else if (tipo == typeof(Espresso))
                 listaRetorno = _ListaProductos.FindAll(producto => tipo.IsInstanceOfType(producto) && 
                 producto is Espresso cafe && cafe.Tueste.ToLower() == caracteristica.ToLower());
 
@@ -67,7 +67,7 @@ namespace DD_Parcial
         {
             List<Producto> listaRetorno = new List<Producto>();
 
-            if(tipo == typeof(Filtro))  
+            if(tipo == typeof(Te))  
                 listaRetorno = _ListaProductos.FindAll(producto => tipo.IsInstanceOfType(producto) && 
                 producto is Te te && te.PresentacionEnLata == caracteristica);
             else if(tipo == typeof(Cafe))
@@ -82,11 +82,11 @@ namespace DD_Parcial
             List<Producto> listaRetorno = Buscar(caracteristica2, tipo);
 
             if(tipo == typeof(Te))
-                listaRetorno.FindAll(producto => tipo.IsInstanceOfType(producto) &&
+                listaRetorno = listaRetorno.FindAll(producto => tipo.IsInstanceOfType(producto) &&
                 producto is Te te && te.PresentacionEnLata == caracteristica1);
 
             else if (tipo == typeof(Cafe))
-                listaRetorno.FindAll(producto => tipo.IsInstanceOfType(producto) &&
+                listaRetorno = listaRetorno.FindAll(producto => tipo.IsInstanceOfType(producto) &&
                 producto is Cafe cafe && cafe.Molido == caracteristica1);
 
             return listaRetorno;

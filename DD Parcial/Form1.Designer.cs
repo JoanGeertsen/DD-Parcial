@@ -95,6 +95,7 @@
             cbTueste.Name = "cbTueste";
             cbTueste.Size = new Size(141, 23);
             cbTueste.TabIndex = 7;
+            cbTueste.SelectedIndexChanged += cbTueste_SelectedIndexChanged;
             // 
             // chEspresso
             // 
@@ -107,6 +108,7 @@
             chEspresso.TabIndex = 6;
             chEspresso.Text = "Perfil espresso";
             chEspresso.UseVisualStyleBackColor = true;
+            chEspresso.CheckedChanged += chEspresso_CheckedChanged;
             // 
             // chFiltro
             // 
@@ -119,6 +121,7 @@
             chFiltro.TabIndex = 5;
             chFiltro.Text = "Perfil filtrados";
             chFiltro.UseVisualStyleBackColor = true;
+            chFiltro.CheckedChanged += chFiltro_CheckedChanged;
             // 
             // label1
             // 
@@ -224,6 +227,7 @@
             rbSobre.TabIndex = 10;
             rbSobre.Text = "Sobre";
             rbSobre.UseVisualStyleBackColor = true;
+            rbSobre.CheckedChanged += rbSobre_CheckedChanged;
             // 
             // rbLata
             // 
@@ -234,6 +238,7 @@
             rbLata.TabIndex = 9;
             rbLata.Text = "Lata";
             rbLata.UseVisualStyleBackColor = true;
+            rbLata.CheckedChanged += rbLata_CheckedChanged;
             // 
             // rbCualquiea
             // 
@@ -246,6 +251,7 @@
             rbCualquiea.TabStop = true;
             rbCualquiea.Text = "Cualquier presentación";
             rbCualquiea.UseVisualStyleBackColor = true;
+            rbCualquiea.CheckedChanged += rbCualquiea_CheckedChanged;
             // 
             // cbTipoTe
             // 
@@ -256,6 +262,7 @@
             cbTipoTe.Name = "cbTipoTe";
             cbTipoTe.Size = new Size(119, 23);
             cbTipoTe.TabIndex = 8;
+            cbTipoTe.SelectedIndexChanged += cbTipoTe_SelectedIndexChanged;
             // 
             // label2
             // 
