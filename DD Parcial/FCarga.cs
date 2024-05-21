@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -35,7 +36,7 @@ namespace DD_Parcial
             else if (selectedIndex == 3) { pInfusion.Visible = true; pTe.Visible = false; pCafe.Visible = false; }
         }
 
-        private bool todoValidado()
+        private bool TodoValidado()
         {
             bool validado = false;
             int selectedIndex = cbTipoProducto.SelectedIndex;
@@ -62,7 +63,7 @@ namespace DD_Parcial
             return validado;
         }    
 
-        private void armarProductoBase(Producto producto)
+        private void ArmarProductoBase(Producto producto)
         {
             producto.Nombre = tNombre.Text;
             producto.FechaVencimiento = dtFechaVencimiento.Value.Date;
@@ -70,32 +71,38 @@ namespace DD_Parcial
             producto.Stock = (int)nudStock.Value;
         }
 
-        private void armarCafe(Cafe cafe)
+        private void ArmarCafe(Cafe cafe)
         {
             cafe.Tueste = cbTueste.Text;
             cafe.Origen = tOrigen.Text;
             cafe.Molido = chMolido.Checked;
         }
 
-        private void armarTe(Te te)
+        private void ArmarTe(Te te)
         {
             te.Tipo = cbTipoTe.Text;
             te.PresentacionEnLata = chPresentacion.Checked;
         }
 
-        private void armarInfusion(Infusion infusion)
+        private void ArmarInfusion(Infusion infusion)
         {
             infusion.Descripcion = rtDescripcion.Text;
         }
 
-        private void limpiarCampos()
+        private void LimpiarCampos()
         {
             tNombre.Clear(); tPrecio.Clear(); nudStock.Value = 0;
             cbTueste.SelectedIndex = -1; tOrigen.Clear(); chMolido.Checked = false;
             cbTipoTe.SelectedIndex = -1; chPresentacion.Checked = false;
             rtDescripcion.Clear();
 
-            todoValidado(); ep.Clear();
+            TodoValidado(); ep.Clear();
+        }
+
+        private bool Existe(Producto p)
+        {
+            List<Producto> lista = _Coleccion.Buscar();
+            return lista.Contains(p);
         }
 
         private void bGuardar_Click(object sender, EventArgs e)
@@ -103,7 +110,7 @@ namespace DD_Parcial
             int selectedIndex = cbTipoProducto.SelectedIndex;
             Producto? producto = null;
 
-            if (!todoValidado())             
+            if (!TodoValidado())             
                 SystemSounds.Hand.Play();        
             else
             {
@@ -111,33 +118,37 @@ namespace DD_Parcial
                 {                    
                     case 0:
                         producto = new Filtro();
-                        armarCafe((Filtro) producto);  
+                        ArmarCafe((Filtro) producto);  
                         break;
                     case 1:
                         producto = new Espresso();
-                        armarCafe((Espresso) producto);  
+                        ArmarCafe((Espresso) producto);  
                         break;
                     case 2:
                         producto = new Te();
-                        armarTe((Te) producto);  
+                        ArmarTe((Te) producto);  
                         break;
                     case 3:
                         producto = new Infusion();
-                        armarInfusion((Infusion) producto);  
+                        ArmarInfusion((Infusion) producto);  
                         break;                   
                 }
             }
             
             if (producto != null)
             {
-                armarProductoBase(producto);
-                _Coleccion.Agregar(producto);
-                MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _FormularioPrincipal.actualizarListBoxYControles();
-                limpiarCampos();
+                ArmarProductoBase(producto);
+
+                if (Existe(producto)) MessageBox.Show("Producto ya cargado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    _Coleccion.Agregar(producto);
+                    MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _FormularioPrincipal.actualizarListBoxYControles();
+                    LimpiarCampos();
+                }              
             }
         }
-
         #endregion
 
         #region Validaciones de campo

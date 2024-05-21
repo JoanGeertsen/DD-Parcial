@@ -74,7 +74,7 @@ namespace DD_Parcial
                 Producto p = (Producto) obj;
                 igual = (_Nombre == p.Nombre);
             }
-            return base.Equals(obj);
+            return igual;         
         }
 
         public override int GetHashCode()
