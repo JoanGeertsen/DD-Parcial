@@ -42,8 +42,10 @@
             button4 = new Button();
             button5 = new Button();
             pTe = new Panel();
+            rbSobre = new RadioButton();
+            rbLata = new RadioButton();
+            rbCualquiea = new RadioButton();
             cbTipoTe = new ComboBox();
-            chEnLata = new CheckBox();
             label2 = new Label();
             pCafe.SuspendLayout();
             pTe.SuspendLayout();
@@ -67,7 +69,7 @@
             cbFiltros.Items.AddRange(new object[] { "Productos (TODOS)", "Café", "Té", "Infusiones" });
             cbFiltros.Location = new Point(302, 12);
             cbFiltros.Name = "cbFiltros";
-            cbFiltros.Size = new Size(145, 23);
+            cbFiltros.Size = new Size(158, 23);
             cbFiltros.TabIndex = 1;
             cbFiltros.SelectedIndexChanged += cbFiltros_SelectedIndexChanged;
             // 
@@ -81,17 +83,17 @@
             pCafe.Enabled = false;
             pCafe.Location = new Point(302, 41);
             pCafe.Name = "pCafe";
-            pCafe.Size = new Size(145, 123);
+            pCafe.Size = new Size(158, 123);
             pCafe.TabIndex = 2;
             // 
             // cbTueste
             // 
             cbTueste.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTueste.FormattingEnabled = true;
-            cbTueste.Items.AddRange(new object[] { "Todos", "Bajo", "Medio", "Alto" });
+            cbTueste.Items.AddRange(new object[] { "Todos", "Tueste bajo", "Tueste medio", "Tueste alto" });
             cbTueste.Location = new Point(9, 84);
             cbTueste.Name = "cbTueste";
-            cbTueste.Size = new Size(121, 23);
+            cbTueste.Size = new Size(141, 23);
             cbTueste.TabIndex = 7;
             // 
             // chEspresso
@@ -132,7 +134,7 @@
             pDatos.BackColor = Color.Wheat;
             pDatos.Location = new Point(302, 260);
             pDatos.Name = "pDatos";
-            pDatos.Size = new Size(145, 56);
+            pDatos.Size = new Size(158, 56);
             pDatos.TabIndex = 4;
             // 
             // button1
@@ -192,7 +194,7 @@
             button5.BackColor = Color.WhiteSmoke;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(375, 322);
+            button5.Location = new Point(388, 322);
             button5.Name = "button5";
             button5.Size = new Size(72, 39);
             button5.TabIndex = 8;
@@ -202,36 +204,58 @@
             // pTe
             // 
             pTe.BackColor = Color.Tan;
+            pTe.Controls.Add(rbSobre);
+            pTe.Controls.Add(rbLata);
+            pTe.Controls.Add(rbCualquiea);
             pTe.Controls.Add(cbTipoTe);
-            pTe.Controls.Add(chEnLata);
             pTe.Controls.Add(label2);
             pTe.Enabled = false;
             pTe.Location = new Point(302, 170);
             pTe.Name = "pTe";
-            pTe.Size = new Size(145, 84);
+            pTe.Size = new Size(158, 84);
             pTe.TabIndex = 8;
+            // 
+            // rbSobre
+            // 
+            rbSobre.AutoSize = true;
+            rbSobre.Location = new Point(95, 60);
+            rbSobre.Name = "rbSobre";
+            rbSobre.Size = new Size(55, 19);
+            rbSobre.TabIndex = 10;
+            rbSobre.Text = "Sobre";
+            rbSobre.UseVisualStyleBackColor = true;
+            // 
+            // rbLata
+            // 
+            rbLata.AutoSize = true;
+            rbLata.Location = new Point(8, 60);
+            rbLata.Name = "rbLata";
+            rbLata.Size = new Size(47, 19);
+            rbLata.TabIndex = 9;
+            rbLata.Text = "Lata";
+            rbLata.UseVisualStyleBackColor = true;
+            // 
+            // rbCualquiea
+            // 
+            rbCualquiea.AutoSize = true;
+            rbCualquiea.Checked = true;
+            rbCualquiea.Location = new Point(8, 35);
+            rbCualquiea.Name = "rbCualquiea";
+            rbCualquiea.Size = new Size(147, 19);
+            rbCualquiea.TabIndex = 11;
+            rbCualquiea.TabStop = true;
+            rbCualquiea.Text = "Cualquier presentación";
+            rbCualquiea.UseVisualStyleBackColor = true;
             // 
             // cbTipoTe
             // 
             cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTe.FormattingEnabled = true;
-            cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
-            cbTipoTe.Location = new Point(9, 26);
+            cbTipoTe.Items.AddRange(new object[] { "TODOS", "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
+            cbTipoTe.Location = new Point(31, 6);
             cbTipoTe.Name = "cbTipoTe";
-            cbTipoTe.Size = new Size(121, 23);
+            cbTipoTe.Size = new Size(119, 23);
             cbTipoTe.TabIndex = 8;
-            // 
-            // chEnLata
-            // 
-            chEnLata.AutoSize = true;
-            chEnLata.Checked = true;
-            chEnLata.CheckState = CheckState.Checked;
-            chEnLata.Location = new Point(9, 55);
-            chEnLata.Name = "chEnLata";
-            chEnLata.Size = new Size(132, 19);
-            chEnLata.TabIndex = 5;
-            chEnLata.Text = "Presentación en lata";
-            chEnLata.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -246,7 +270,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(463, 383);
+            ClientSize = new Size(472, 383);
             Controls.Add(pTe);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -284,7 +308,9 @@
         private ComboBox cbTueste;
         private Panel pTe;
         private ComboBox cbTipoTe;
-        private CheckBox chEnLata;
         private Label label2;
+        private RadioButton rbCualquiea;
+        private RadioButton rbSobre;
+        private RadioButton rbLata;
     }
 }
