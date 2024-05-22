@@ -30,14 +30,14 @@ namespace DD_Parcial
             this.Close();
         }
         #endregion
-        
+
         #region Movimiento de formulario
         private void FAcercaDe_MouseDown(object sender, MouseEventArgs e)
         {
             isDragging = true;
             startPoint = new Point(e.X, e.Y);
         }
-    
+
 
         private void FAcercaDe_MouseMove(object sender, MouseEventArgs e)
         {

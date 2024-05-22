@@ -17,13 +17,12 @@ namespace DD_Parcial
             _FormularioAcercaDe = new FAcercaDe();
         }
 
-        #region Funcionalidades
-        private void button1_Click(object sender, EventArgs e)
+        #region Funcionalidades      
+        private void bAgregar_Click(object sender, EventArgs e)
         {
             if (_FormularioCarga.IsDisposed) _FormularioCarga = new FCarga(_Coleccion, this);
             _FormularioCarga.Show(); _FormularioCarga.BringToFront();
         }
-
         private void habilitarControles()
         {
             int selectedIndex = cbFiltros.SelectedIndex;
@@ -94,7 +93,7 @@ namespace DD_Parcial
             foreach (Producto p in listaMostrar)
                 lbProductos.Items.Add(p.ToString());
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void bModificar_Click(object sender, EventArgs e)
         {
             if (lbProductos.SelectedIndex == -1)
             {
@@ -182,6 +181,6 @@ namespace DD_Parcial
         {
             actualizarListBoxYControles();
         }
-        #endregion       
+        #endregion        
     }
 }

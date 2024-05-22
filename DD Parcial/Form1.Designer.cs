@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPrincipal));
             lbProductos = new ListBox();
             cbFiltros = new ComboBox();
             pCafe = new Panel();
@@ -38,8 +39,8 @@
             pDatos = new Panel();
             lCantidadTotal = new Label();
             lCantidadEnPantalla = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            bAgregar = new Button();
+            bModificar = new Button();
             bEliminar = new Button();
             bSalir = new Button();
             bAcercaDe = new Button();
@@ -163,33 +164,33 @@
             lCantidadEnPantalla.TabIndex = 9;
             lCantidadEnPantalla.Text = "Cantidad en pantalla";
             // 
-            // button1
+            // bAgregar
             // 
-            button1.BackColor = Color.PaleGreen;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(12, 322);
-            button1.Name = "button1";
-            button1.Size = new Size(84, 39);
-            button1.TabIndex = 0;
-            button1.Text = "Agregar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            bAgregar.BackColor = Color.PaleGreen;
+            bAgregar.FlatStyle = FlatStyle.Flat;
+            bAgregar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            bAgregar.ForeColor = SystemColors.ActiveCaptionText;
+            bAgregar.Location = new Point(12, 322);
+            bAgregar.Name = "bAgregar";
+            bAgregar.Size = new Size(84, 39);
+            bAgregar.TabIndex = 0;
+            bAgregar.Text = "Agregar";
+            bAgregar.UseVisualStyleBackColor = false;
+            bAgregar.Click += bAgregar_Click;
             // 
-            // button2
+            // bModificar
             // 
-            button2.BackColor = Color.Khaki;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(113, 322);
-            button2.Name = "button2";
-            button2.Size = new Size(84, 39);
-            button2.TabIndex = 5;
-            button2.Text = "Modificar";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            bModificar.BackColor = Color.Khaki;
+            bModificar.FlatStyle = FlatStyle.Flat;
+            bModificar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            bModificar.ForeColor = SystemColors.ActiveCaptionText;
+            bModificar.Location = new Point(113, 322);
+            bModificar.Name = "bModificar";
+            bModificar.Size = new Size(84, 39);
+            bModificar.TabIndex = 5;
+            bModificar.Text = "Modificar";
+            bModificar.UseVisualStyleBackColor = false;
+            bModificar.Click += bModificar_Click;
             // 
             // bEliminar
             // 
@@ -309,14 +310,15 @@
             Controls.Add(bAcercaDe);
             Controls.Add(bSalir);
             Controls.Add(bEliminar);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(bModificar);
+            Controls.Add(bAgregar);
             Controls.Add(pDatos);
             Controls.Add(pCafe);
             Controls.Add(cbFiltros);
             Controls.Add(lbProductos);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FPrincipal";
             Text = "Principal";
@@ -338,8 +340,8 @@
         private CheckBox chFiltro;
         private Label label1;
         private Panel pDatos;
-        private Button button1;
-        private Button button2;
+        private Button bAgregar;
+        private Button bModificar;
         private Button bEliminar;
         private Button bSalir;
         private Button bAcercaDe;

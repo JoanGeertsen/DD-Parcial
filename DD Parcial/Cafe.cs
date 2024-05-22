@@ -60,12 +60,11 @@ namespace DD_Parcial
         {
             return (_Molido) ? _Precio + RecargoPorMolido : _Precio;
         }
-        #endregion
-
         public override string ToString()
         {
-            string molido= _Molido ? "Molido" : "En grano";
+            string molido = _Molido ? "Molido" : "En grano";
             return base.ToString() + $"\n Tueste: {_Tueste}\n Origen: {_Origen}\n {molido}";
-        }        
+        }
+        #endregion
     }
 }

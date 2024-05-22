@@ -32,6 +32,7 @@
             pictureBox = new PictureBox();
             label2 = new Label();
             bCerrar = new Button();
+            linkLabel1 = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             bCerrar.Dock = DockStyle.Bottom;
             bCerrar.FlatStyle = FlatStyle.Flat;
             bCerrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            bCerrar.Location = new Point(0, 418);
+            bCerrar.Location = new Point(0, 438);
             bCerrar.Name = "bCerrar";
             bCerrar.Size = new Size(364, 32);
             bCerrar.TabIndex = 3;
@@ -81,12 +82,23 @@
             bCerrar.UseVisualStyleBackColor = false;
             bCerrar.Click += bCerrar_Click;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(66, 411);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(60, 15);
+            linkLabel1.TabIndex = 4;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "linkLabel1";
+            // 
             // FAcercaDe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(52, 91, 108);
-            ClientSize = new Size(364, 450);
+            ClientSize = new Size(364, 470);
+            Controls.Add(linkLabel1);
             Controls.Add(bCerrar);
             Controls.Add(label2);
             Controls.Add(pictureBox);
@@ -109,5 +121,6 @@
         private PictureBox pictureBox;
         private Label label2;
         private Button bCerrar;
+        private LinkLabel linkLabel1;
     }
 }
