@@ -60,10 +60,10 @@
             lbProductos.FormattingEnabled = true;
             lbProductos.HorizontalExtent = 800;
             lbProductos.HorizontalScrollbar = true;
-            lbProductos.ItemHeight = 15;
+            lbProductos.ItemHeight = 25;
             lbProductos.Location = new Point(12, 12);
             lbProductos.Name = "lbProductos";
-            lbProductos.Size = new Size(284, 304);
+            lbProductos.Size = new Size(381, 379);
             lbProductos.TabIndex = 0;
             // 
             // cbFiltros
@@ -71,9 +71,9 @@
             cbFiltros.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFiltros.FormattingEnabled = true;
             cbFiltros.Items.AddRange(new object[] { "Productos (TODOS)", "Café", "Té", "Infusiones" });
-            cbFiltros.Location = new Point(302, 12);
+            cbFiltros.Location = new Point(429, 18);
             cbFiltros.Name = "cbFiltros";
-            cbFiltros.Size = new Size(158, 23);
+            cbFiltros.Size = new Size(242, 33);
             cbFiltros.TabIndex = 1;
             cbFiltros.SelectedIndexChanged += cbFiltros_SelectedIndexChanged;
             // 
@@ -85,9 +85,9 @@
             pCafe.Controls.Add(chFiltro);
             pCafe.Controls.Add(label1);
             pCafe.Enabled = false;
-            pCafe.Location = new Point(302, 41);
+            pCafe.Location = new Point(429, 57);
             pCafe.Name = "pCafe";
-            pCafe.Size = new Size(158, 123);
+            pCafe.Size = new Size(242, 137);
             pCafe.TabIndex = 2;
             // 
             // cbTueste
@@ -95,9 +95,9 @@
             cbTueste.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTueste.FormattingEnabled = true;
             cbTueste.Items.AddRange(new object[] { "Todos", "Tueste bajo", "Tueste medio", "Tueste alto" });
-            cbTueste.Location = new Point(9, 84);
+            cbTueste.Location = new Point(9, 94);
             cbTueste.Name = "cbTueste";
-            cbTueste.Size = new Size(141, 23);
+            cbTueste.Size = new Size(196, 33);
             cbTueste.TabIndex = 7;
             cbTueste.SelectedIndexChanged += cbTueste_SelectedIndexChanged;
             // 
@@ -108,7 +108,7 @@
             chEspresso.CheckState = CheckState.Checked;
             chEspresso.Location = new Point(9, 59);
             chEspresso.Name = "chEspresso";
-            chEspresso.Size = new Size(101, 19);
+            chEspresso.Size = new Size(151, 29);
             chEspresso.TabIndex = 6;
             chEspresso.Text = "Perfil espresso";
             chEspresso.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@
             chFiltro.CheckState = CheckState.Checked;
             chFiltro.Location = new Point(9, 31);
             chFiltro.Name = "chFiltro";
-            chFiltro.Size = new Size(99, 19);
+            chFiltro.Size = new Size(146, 29);
             chFiltro.TabIndex = 5;
             chFiltro.Text = "Perfil filtrados";
             chFiltro.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(9, 8);
             label1.Name = "label1";
-            label1.Size = new Size(31, 15);
+            label1.Size = new Size(47, 25);
             label1.TabIndex = 4;
             label1.Text = "Café";
             // 
@@ -141,9 +141,9 @@
             pDatos.BackColor = Color.Wheat;
             pDatos.Controls.Add(lCantidadTotal);
             pDatos.Controls.Add(lCantidadEnPantalla);
-            pDatos.Location = new Point(302, 260);
+            pDatos.Location = new Point(429, 340);
             pDatos.Name = "pDatos";
-            pDatos.Size = new Size(158, 56);
+            pDatos.Size = new Size(242, 71);
             pDatos.TabIndex = 4;
             // 
             // lCantidadTotal
@@ -151,7 +151,7 @@
             lCantidadTotal.AutoSize = true;
             lCantidadTotal.Location = new Point(6, 10);
             lCantidadTotal.Name = "lCantidadTotal";
-            lCantidadTotal.Size = new Size(131, 15);
+            lCantidadTotal.Size = new Size(199, 25);
             lCantidadTotal.TabIndex = 10;
             lCantidadTotal.Text = "Cantidad de productos:";
             // 
@@ -160,7 +160,7 @@
             lCantidadEnPantalla.AutoSize = true;
             lCantidadEnPantalla.Location = new Point(6, 33);
             lCantidadEnPantalla.Name = "lCantidadEnPantalla";
-            lCantidadEnPantalla.Size = new Size(116, 15);
+            lCantidadEnPantalla.Size = new Size(174, 25);
             lCantidadEnPantalla.TabIndex = 9;
             lCantidadEnPantalla.Text = "Cantidad en pantalla";
             // 
@@ -170,9 +170,9 @@
             bAgregar.FlatStyle = FlatStyle.Flat;
             bAgregar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             bAgregar.ForeColor = SystemColors.ActiveCaptionText;
-            bAgregar.Location = new Point(12, 322);
+            bAgregar.Location = new Point(12, 417);
             bAgregar.Name = "bAgregar";
-            bAgregar.Size = new Size(84, 39);
+            bAgregar.Size = new Size(118, 46);
             bAgregar.TabIndex = 0;
             bAgregar.Text = "Agregar";
             bAgregar.UseVisualStyleBackColor = false;
@@ -184,9 +184,9 @@
             bModificar.FlatStyle = FlatStyle.Flat;
             bModificar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             bModificar.ForeColor = SystemColors.ActiveCaptionText;
-            bModificar.Location = new Point(113, 322);
+            bModificar.Location = new Point(275, 417);
             bModificar.Name = "bModificar";
-            bModificar.Size = new Size(84, 39);
+            bModificar.Size = new Size(118, 46);
             bModificar.TabIndex = 5;
             bModificar.Text = "Modificar";
             bModificar.UseVisualStyleBackColor = false;
@@ -198,9 +198,9 @@
             bEliminar.FlatStyle = FlatStyle.Flat;
             bEliminar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             bEliminar.ForeColor = SystemColors.ActiveCaptionText;
-            bEliminar.Location = new Point(212, 322);
+            bEliminar.Location = new Point(144, 417);
             bEliminar.Name = "bEliminar";
-            bEliminar.Size = new Size(84, 39);
+            bEliminar.Size = new Size(118, 46);
             bEliminar.TabIndex = 6;
             bEliminar.Text = "Eliminar";
             bEliminar.UseVisualStyleBackColor = false;
@@ -211,9 +211,9 @@
             bSalir.BackColor = Color.WhiteSmoke;
             bSalir.FlatStyle = FlatStyle.Flat;
             bSalir.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            bSalir.Location = new Point(302, 322);
+            bSalir.Location = new Point(429, 417);
             bSalir.Name = "bSalir";
-            bSalir.Size = new Size(67, 39);
+            bSalir.Size = new Size(118, 46);
             bSalir.TabIndex = 7;
             bSalir.Text = "Salir";
             bSalir.UseVisualStyleBackColor = false;
@@ -224,9 +224,9 @@
             bAcercaDe.BackColor = Color.WhiteSmoke;
             bAcercaDe.FlatStyle = FlatStyle.Flat;
             bAcercaDe.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            bAcercaDe.Location = new Point(388, 322);
+            bAcercaDe.Location = new Point(553, 417);
             bAcercaDe.Name = "bAcercaDe";
-            bAcercaDe.Size = new Size(72, 39);
+            bAcercaDe.Size = new Size(118, 46);
             bAcercaDe.TabIndex = 8;
             bAcercaDe.Text = "Acerca de";
             bAcercaDe.UseVisualStyleBackColor = false;
@@ -241,17 +241,17 @@
             pTe.Controls.Add(cbTipoTe);
             pTe.Controls.Add(label2);
             pTe.Enabled = false;
-            pTe.Location = new Point(302, 170);
+            pTe.Location = new Point(429, 200);
             pTe.Name = "pTe";
-            pTe.Size = new Size(158, 84);
+            pTe.Size = new Size(242, 137);
             pTe.TabIndex = 8;
             // 
             // rbSobre
             // 
             rbSobre.AutoSize = true;
-            rbSobre.Location = new Point(95, 60);
+            rbSobre.Location = new Point(96, 96);
             rbSobre.Name = "rbSobre";
-            rbSobre.Size = new Size(55, 19);
+            rbSobre.Size = new Size(84, 29);
             rbSobre.TabIndex = 10;
             rbSobre.Text = "Sobre";
             rbSobre.UseVisualStyleBackColor = true;
@@ -260,9 +260,9 @@
             // rbLata
             // 
             rbLata.AutoSize = true;
-            rbLata.Location = new Point(8, 60);
+            rbLata.Location = new Point(9, 96);
             rbLata.Name = "rbLata";
-            rbLata.Size = new Size(47, 19);
+            rbLata.Size = new Size(69, 29);
             rbLata.TabIndex = 9;
             rbLata.Text = "Lata";
             rbLata.UseVisualStyleBackColor = true;
@@ -272,9 +272,9 @@
             // 
             rbCualquiea.AutoSize = true;
             rbCualquiea.Checked = true;
-            rbCualquiea.Location = new Point(8, 35);
+            rbCualquiea.Location = new Point(9, 66);
             rbCualquiea.Name = "rbCualquiea";
-            rbCualquiea.Size = new Size(147, 19);
+            rbCualquiea.Size = new Size(217, 29);
             rbCualquiea.TabIndex = 11;
             rbCualquiea.TabStop = true;
             rbCualquiea.Text = "Cualquier presentación";
@@ -286,26 +286,26 @@
             cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTe.FormattingEnabled = true;
             cbTipoTe.Items.AddRange(new object[] { "TODOS", "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
-            cbTipoTe.Location = new Point(31, 6);
+            cbTipoTe.Location = new Point(38, 13);
             cbTipoTe.Name = "cbTipoTe";
-            cbTipoTe.Size = new Size(119, 23);
+            cbTipoTe.Size = new Size(167, 33);
             cbTipoTe.TabIndex = 8;
             cbTipoTe.SelectedIndexChanged += cbTipoTe_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 8);
+            label2.Location = new Point(9, 15);
             label2.Name = "label2";
-            label2.Size = new Size(18, 15);
+            label2.Size = new Size(28, 25);
             label2.TabIndex = 4;
             label2.Text = "Té";
             // 
             // FPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(472, 383);
+            ClientSize = new Size(692, 482);
             Controls.Add(pTe);
             Controls.Add(bAcercaDe);
             Controls.Add(bSalir);

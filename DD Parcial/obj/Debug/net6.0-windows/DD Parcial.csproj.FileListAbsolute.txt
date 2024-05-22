@@ -17,3 +17,22 @@ C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Pa
 C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FCarga.resources
 C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.Properties.Resources.resources
 C:\Users\joang\source\repos\DD Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FAcercaDe.resources
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\bin\Debug\net6.0-windows\DD Parcial.exe
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\bin\Debug\net6.0-windows\DD Parcial.deps.json
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\bin\Debug\net6.0-windows\DD Parcial.runtimeconfig.json
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\bin\Debug\net6.0-windows\DD Parcial.dll
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\bin\Debug\net6.0-windows\DD Parcial.pdb
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FAcercaDe.resources
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FCarga.resources
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.FPrincipal.resources
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD_Parcial.Properties.Resources.resources
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.csproj.GenerateResource.cache
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.AssemblyInfoInputs.cache
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.AssemblyInfo.cs
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.csproj.CoreCompileInputs.cache
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.dll
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\refint\DD Parcial.dll
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.pdb
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\DD Parcial.genruntimeconfig.cache
+C:\Users\joang\Desktop\DD Parcial\DD-Parcial\DD Parcial\obj\Debug\net6.0-windows\ref\DD Parcial.dll
