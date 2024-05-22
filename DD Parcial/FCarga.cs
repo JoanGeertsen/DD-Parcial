@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace DD_Parcial
 {
     public partial class FCarga : Form
@@ -28,6 +29,43 @@ namespace DD_Parcial
         }
 
         #region Funcionalidades
+
+        public void Mostrar(Producto producto)
+        {
+            colorTextBox(); cbTipoProducto.Enabled = false; tCodigo.Enabled = false; ep.Clear();
+            //Campos de producto:
+            tNombre.Text = producto.Nombre; tCodigo.Text = producto.Codigo.ToString(); dtFechaVencimiento.Value = producto.FechaVencimiento;
+            tPrecio.Text= producto.Precio.ToString(); nudStock.Value = producto.Stock;
+
+            if(producto is Cafe cafe)//Campos de café
+            {
+                if(producto is Filtro) cbTipoProducto.SelectedIndex = 0; else cbTipoProducto.SelectedIndex = 1;
+
+                if(cafe.Tueste.ToLower() == "bajo") cbTueste.SelectedIndex = 0;
+                else if (cafe.Tueste.ToLower() == "medio") cbTueste.SelectedIndex = 1;
+                else if (cafe.Tueste.ToLower() == "alto") cbTueste.SelectedIndex = 2;
+
+                tOrigen.Text = cafe.Origen;
+                chMolido.Checked= cafe.Molido;
+            }
+            
+            else if(producto is Te te)//Campos de té
+            {
+                cbTipoProducto.SelectedIndex = 2;
+
+                string[] tiposDeTe = { "verde", "blanco", "amarillo", "oolong", "negro", "pu-erh" };
+                int indice = Array.IndexOf(tiposDeTe, te.Tipo.ToLower());
+                cbTipoTe.SelectedIndex = indice;
+                chPresentacion.Checked = te.PresentacionEnLata;
+            }
+
+            else if(producto is Infusion infusion)//Campos de infusión
+            {
+                cbTipoProducto.SelectedIndex = 3;
+
+                rtDescripcion.Text= infusion.Descripcion;
+            }
+        }
         private void cbTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = cbTipoProducto.SelectedIndex;
@@ -97,7 +135,7 @@ namespace DD_Parcial
             cbTipoTe.SelectedIndex = -1; chPresentacion.Checked = false;
             rtDescripcion.Clear();
 
-            TodoValidado(); ep.Clear();
+            TodoValidado(); ep.Clear(); cbTipoProducto.Enabled = true; tCodigo.Enabled = true;
         }
 
         private bool Existe(Producto p)
@@ -139,13 +177,26 @@ namespace DD_Parcial
             if (producto != null)
             {
                 ArmarProductoBase(producto);
+                bool guardar = true;
 
-                if (Existe(producto))
+               if (Existe(producto) && !tCodigo.Enabled)
+                {
+                    if(MessageBox.Show("¿Está seguro de que desea actualizar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        _Coleccion.Eliminar(producto);
+                        guardar = true;
+                    }
+                }
+
+               else if (Existe(producto) && tCodigo.Enabled)
                 {
                     MessageBox.Show("Ya existe producto con ese código", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tCodigo.Focus(); ep.SetError(tCodigo, "Código repetido");
+                    guardar = false;
                 }
-                else
+
+
+                if(guardar)
                 {
                     _Coleccion.Agregar(producto);
                     MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -210,7 +261,7 @@ namespace DD_Parcial
         }
         #endregion
 
-        #region Marcas de agua
+        #region Marcas de agua       
         private void tNombre_Enter(object sender, EventArgs e)
         {
             if (tNombre.Text == "Nombre")
@@ -297,6 +348,12 @@ namespace DD_Parcial
                 tCodigo.Text = "Código";
                 tCodigo.ForeColor = Color.Gray;
             }
+        }
+        private void colorTextBox()
+        {         
+            tCodigo.ForeColor = Color.Black; tNombre.ForeColor = Color.Black; tPrecio.ForeColor = Color.Black; 
+            tOrigen.ForeColor = Color.Black;
+            rtDescripcion.ForeColor = Color.Black;
         }
         #endregion
 

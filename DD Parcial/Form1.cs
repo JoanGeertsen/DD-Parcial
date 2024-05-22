@@ -100,6 +100,11 @@ namespace DD_Parcial
             {
                 if (_FormularioCarga.IsDisposed) _FormularioCarga = new FCarga(_Coleccion, this);
                 _FormularioCarga.Show(); _FormularioCarga.BringToFront();
+
+                List<Producto> lista = obtenerLista();
+                Producto producto = lista[lbProductos.SelectedIndex];
+
+                _FormularioCarga.Mostrar(producto);
             }
         }
 
@@ -110,13 +115,18 @@ namespace DD_Parcial
                 MessageBox.Show("Debe seleccionar un item del listado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (lbProductos.Items.Count > 0) lbProductos.SetSelected(0, true);
             }
-            else
+            else if(MessageBox.Show("¿Está seguro que desea eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<Producto> lista = obtenerLista();
                 Producto producto = lista[lbProductos.SelectedIndex];
                 _Coleccion.Eliminar(producto);
                 actualizarListBoxYControles();
             }
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
         #endregion
 
@@ -162,11 +172,6 @@ namespace DD_Parcial
         {
             actualizarListBoxYControles();
         }
-        #endregion
-
-        private void bSalir_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        #endregion        
     }
 }
