@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -53,5 +54,17 @@ namespace DD_Parcial
             isDragging = false;
         }
         #endregion
+
+        private void linkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url = "https://github.com/JoanGeertsen/";
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
+
+        private void linkLinkedIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url = "https://www.linkedin.com/in/joan-geertsen-8165a8248/";
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
     }
 }

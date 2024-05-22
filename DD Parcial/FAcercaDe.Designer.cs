@@ -32,7 +32,8 @@
             pictureBox = new PictureBox();
             label2 = new Label();
             bCerrar = new Button();
-            linkLabel1 = new LinkLabel();
+            linkGithub = new LinkLabel();
+            linkLinkedIn = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Underline, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(243, 204, 88);
             label2.Location = new Point(107, 55);
             label2.Name = "label2";
@@ -82,15 +83,33 @@
             bCerrar.UseVisualStyleBackColor = false;
             bCerrar.Click += bCerrar_Click;
             // 
-            // linkLabel1
+            // linkGithub
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(66, 411);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(60, 15);
-            linkLabel1.TabIndex = 4;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "linkLabel1";
+            linkGithub.ActiveLinkColor = Color.FromArgb(218, 96, 15);
+            linkGithub.AutoSize = true;
+            linkGithub.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            linkGithub.LinkColor = Color.FromArgb(243, 204, 88);
+            linkGithub.Location = new Point(66, 401);
+            linkGithub.Name = "linkGithub";
+            linkGithub.Size = new Size(72, 25);
+            linkGithub.TabIndex = 4;
+            linkGithub.TabStop = true;
+            linkGithub.Text = "GitHub";
+            linkGithub.LinkClicked += linkGithub_LinkClicked;
+            // 
+            // linkLinkedIn
+            // 
+            linkLinkedIn.ActiveLinkColor = Color.FromArgb(218, 96, 15);
+            linkLinkedIn.AutoSize = true;
+            linkLinkedIn.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLinkedIn.LinkColor = Color.FromArgb(243, 204, 88);
+            linkLinkedIn.Location = new Point(215, 401);
+            linkLinkedIn.Name = "linkLinkedIn";
+            linkLinkedIn.Size = new Size(86, 25);
+            linkLinkedIn.TabIndex = 5;
+            linkLinkedIn.TabStop = true;
+            linkLinkedIn.Text = "LinkedIn";
+            linkLinkedIn.LinkClicked += linkLinkedIn_LinkClicked;
             // 
             // FAcercaDe
             // 
@@ -98,7 +117,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(52, 91, 108);
             ClientSize = new Size(364, 470);
-            Controls.Add(linkLabel1);
+            Controls.Add(linkLinkedIn);
+            Controls.Add(linkGithub);
             Controls.Add(bCerrar);
             Controls.Add(label2);
             Controls.Add(pictureBox);
@@ -121,6 +141,7 @@
         private PictureBox pictureBox;
         private Label label2;
         private Button bCerrar;
-        private LinkLabel linkLabel1;
+        private LinkLabel linkGithub;
+        private LinkLabel linkLinkedIn;
     }
 }
