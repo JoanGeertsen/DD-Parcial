@@ -51,6 +51,7 @@
             label5 = new Label();
             tPrecio = new TextBox();
             tCodigo = new TextBox();
+            chAzucar = new CheckBox();
             pCafe.SuspendLayout();
             pInfusion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
@@ -63,9 +64,10 @@
             cbTipoProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoProducto.FormattingEnabled = true;
             cbTipoProducto.Items.AddRange(new object[] { "Café para Filtrados", "Café para Espressos ", "Té", "Infusiones" });
-            cbTipoProducto.Location = new Point(12, 12);
+            cbTipoProducto.Location = new Point(17, 20);
+            cbTipoProducto.Margin = new Padding(4, 5, 4, 5);
             cbTipoProducto.Name = "cbTipoProducto";
-            cbTipoProducto.Size = new Size(134, 23);
+            cbTipoProducto.Size = new Size(190, 33);
             cbTipoProducto.TabIndex = 0;
             cbTipoProducto.SelectedIndexChanged += cbTipoProducto_SelectedIndexChanged;
             cbTipoProducto.Validating += cbTipoProducto_Validating;
@@ -73,22 +75,25 @@
             // pCafe
             // 
             pCafe.BackColor = Color.Tan;
+            pCafe.Controls.Add(chAzucar);
             pCafe.Controls.Add(chMolido);
             pCafe.Controls.Add(tOrigen);
             pCafe.Controls.Add(label2);
             pCafe.Controls.Add(cbTueste);
-            pCafe.Location = new Point(12, 97);
+            pCafe.Location = new Point(17, 162);
+            pCafe.Margin = new Padding(4, 5, 4, 5);
             pCafe.Name = "pCafe";
-            pCafe.Size = new Size(210, 100);
+            pCafe.Size = new Size(300, 167);
             pCafe.TabIndex = 5;
             pCafe.Visible = false;
             // 
             // chMolido
             // 
             chMolido.AutoSize = true;
-            chMolido.Location = new Point(11, 67);
+            chMolido.Location = new Point(16, 112);
+            chMolido.Margin = new Padding(4, 5, 4, 5);
             chMolido.Name = "chMolido";
-            chMolido.Size = new Size(64, 19);
+            chMolido.Size = new Size(95, 29);
             chMolido.TabIndex = 3;
             chMolido.Text = "Molido";
             chMolido.UseVisualStyleBackColor = true;
@@ -99,9 +104,10 @@
             tOrigen.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tOrigen.AutoCompleteSource = AutoCompleteSource.CustomSource;
             tOrigen.ForeColor = SystemColors.InactiveCaption;
-            tOrigen.Location = new Point(10, 32);
+            tOrigen.Location = new Point(14, 53);
+            tOrigen.Margin = new Padding(4, 5, 4, 5);
             tOrigen.Name = "tOrigen";
-            tOrigen.Size = new Size(184, 23);
+            tOrigen.Size = new Size(261, 31);
             tOrigen.TabIndex = 2;
             tOrigen.Text = "Origen";
             tOrigen.Enter += tOrigen_Enter;
@@ -111,9 +117,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(11, 7);
+            label2.Location = new Point(16, 12);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(44, 15);
+            label2.Size = new Size(67, 25);
             label2.TabIndex = 1;
             label2.Text = "Tueste:";
             // 
@@ -122,9 +129,10 @@
             cbTueste.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTueste.FormattingEnabled = true;
             cbTueste.Items.AddRange(new object[] { "Bajo", "Medio", "Alto" });
-            cbTueste.Location = new Point(61, 4);
+            cbTueste.Location = new Point(87, 7);
+            cbTueste.Margin = new Padding(4, 5, 4, 5);
             cbTueste.Name = "cbTueste";
-            cbTueste.Size = new Size(57, 23);
+            cbTueste.Size = new Size(80, 33);
             cbTueste.TabIndex = 0;
             cbTueste.Validating += cbTueste_Validating;
             // 
@@ -132,18 +140,20 @@
             // 
             pInfusion.BackColor = Color.Tan;
             pInfusion.Controls.Add(rtDescripcion);
-            pInfusion.Location = new Point(12, 95);
+            pInfusion.Location = new Point(15, 158);
+            pInfusion.Margin = new Padding(4, 5, 4, 5);
             pInfusion.Name = "pInfusion";
-            pInfusion.Size = new Size(210, 100);
+            pInfusion.Size = new Size(300, 167);
             pInfusion.TabIndex = 0;
             pInfusion.Visible = false;
             // 
             // rtDescripcion
             // 
             rtDescripcion.ForeColor = SystemColors.InactiveCaption;
-            rtDescripcion.Location = new Point(6, 11);
+            rtDescripcion.Location = new Point(9, 18);
+            rtDescripcion.Margin = new Padding(4, 5, 4, 5);
             rtDescripcion.Name = "rtDescripcion";
-            rtDescripcion.Size = new Size(186, 74);
+            rtDescripcion.Size = new Size(264, 121);
             rtDescripcion.TabIndex = 2;
             rtDescripcion.Text = "Descripción...";
             rtDescripcion.Enter += rtDescripcion_Enter;
@@ -153,9 +163,10 @@
             // tNombre
             // 
             tNombre.ForeColor = SystemColors.ControlDark;
-            tNombre.Location = new Point(12, 39);
+            tNombre.Location = new Point(17, 65);
+            tNombre.Margin = new Padding(4, 5, 4, 5);
             tNombre.Name = "tNombre";
-            tNombre.Size = new Size(210, 23);
+            tNombre.Size = new Size(298, 31);
             tNombre.TabIndex = 2;
             tNombre.Text = "Nombre";
             tNombre.Enter += tNombre_Enter;
@@ -166,26 +177,29 @@
             // 
             dtFechaVencimiento.CustomFormat = "dd/MM/yyyy";
             dtFechaVencimiento.Format = DateTimePickerFormat.Short;
-            dtFechaVencimiento.Location = new Point(52, 68);
+            dtFechaVencimiento.Location = new Point(74, 113);
+            dtFechaVencimiento.Margin = new Padding(4, 5, 4, 5);
             dtFechaVencimiento.Name = "dtFechaVencimiento";
-            dtFechaVencimiento.Size = new Size(78, 23);
+            dtFechaVencimiento.Size = new Size(110, 31);
             dtFechaVencimiento.TabIndex = 4;
             dtFechaVencimiento.Value = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             dtFechaVencimiento.Validating += dtFechaVencimiento_Validating;
             // 
             // nudStock
             // 
-            nudStock.Location = new Point(12, 204);
+            nudStock.Location = new Point(17, 340);
+            nudStock.Margin = new Padding(4, 5, 4, 5);
             nudStock.Name = "nudStock";
-            nudStock.Size = new Size(64, 23);
+            nudStock.Size = new Size(91, 31);
             nudStock.TabIndex = 5;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 230);
+            label1.Location = new Point(31, 383);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(36, 15);
+            label1.Size = new Size(55, 25);
             label1.TabIndex = 6;
             label1.Text = "Stock";
             // 
@@ -193,9 +207,10 @@
             // 
             bGuardar.BackColor = Color.PaleGreen;
             bGuardar.FlatStyle = FlatStyle.Flat;
-            bGuardar.Location = new Point(92, 202);
+            bGuardar.Location = new Point(131, 337);
+            bGuardar.Margin = new Padding(4, 5, 4, 5);
             bGuardar.Name = "bGuardar";
-            bGuardar.Size = new Size(130, 43);
+            bGuardar.Size = new Size(186, 72);
             bGuardar.TabIndex = 7;
             bGuardar.Text = "Guardar";
             bGuardar.UseVisualStyleBackColor = false;
@@ -204,9 +219,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 71);
+            label3.Location = new Point(17, 118);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(57, 25);
             label3.TabIndex = 8;
             label3.Text = "Venc.:";
             // 
@@ -216,18 +232,20 @@
             pTe.Controls.Add(chPresentacion);
             pTe.Controls.Add(label4);
             pTe.Controls.Add(cbTipoTe);
-            pTe.Location = new Point(12, 98);
+            pTe.Location = new Point(17, 163);
+            pTe.Margin = new Padding(4, 5, 4, 5);
             pTe.Name = "pTe";
-            pTe.Size = new Size(210, 100);
+            pTe.Size = new Size(300, 167);
             pTe.TabIndex = 2;
             pTe.Visible = false;
             // 
             // chPresentacion
             // 
             chPresentacion.AutoSize = true;
-            chPresentacion.Location = new Point(11, 42);
+            chPresentacion.Location = new Point(16, 70);
+            chPresentacion.Margin = new Padding(4, 5, 4, 5);
             chPresentacion.Name = "chPresentacion";
-            chPresentacion.Size = new Size(132, 19);
+            chPresentacion.Size = new Size(195, 29);
             chPresentacion.TabIndex = 3;
             chPresentacion.Text = "Presentación en lata";
             chPresentacion.UseVisualStyleBackColor = true;
@@ -235,9 +253,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(11, 7);
+            label4.Location = new Point(16, 12);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(33, 15);
+            label4.Size = new Size(51, 25);
             label4.TabIndex = 1;
             label4.Text = "Tipo:";
             // 
@@ -246,9 +265,10 @@
             cbTipoTe.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTe.FormattingEnabled = true;
             cbTipoTe.Items.AddRange(new object[] { "Verde", "Blanco", "Amarillo", "Oolong", "Negro", "Pu-erh" });
-            cbTipoTe.Location = new Point(50, 4);
+            cbTipoTe.Location = new Point(71, 7);
+            cbTipoTe.Margin = new Padding(4, 5, 4, 5);
             cbTipoTe.Name = "cbTipoTe";
-            cbTipoTe.Size = new Size(93, 23);
+            cbTipoTe.Size = new Size(131, 33);
             cbTipoTe.TabIndex = 0;
             cbTipoTe.Validating += cbTipoTe_Validating;
             // 
@@ -259,9 +279,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(136, 72);
+            label5.Location = new Point(194, 120);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(13, 15);
+            label5.Size = new Size(22, 25);
             label5.TabIndex = 9;
             label5.Text = "$";
             // 
@@ -269,9 +290,10 @@
             // 
             tPrecio.BackColor = Color.WhiteSmoke;
             tPrecio.ForeColor = SystemColors.InactiveCaption;
-            tPrecio.Location = new Point(152, 68);
+            tPrecio.Location = new Point(217, 113);
+            tPrecio.Margin = new Padding(4, 5, 4, 5);
             tPrecio.Name = "tPrecio";
-            tPrecio.Size = new Size(70, 23);
+            tPrecio.Size = new Size(98, 31);
             tPrecio.TabIndex = 10;
             tPrecio.Text = "0";
             tPrecio.Enter += tPrecio_Enter;
@@ -283,9 +305,10 @@
             // 
             tCodigo.BackColor = Color.WhiteSmoke;
             tCodigo.ForeColor = SystemColors.InactiveCaption;
-            tCodigo.Location = new Point(164, 12);
+            tCodigo.Location = new Point(234, 20);
+            tCodigo.Margin = new Padding(4, 5, 4, 5);
             tCodigo.Name = "tCodigo";
-            tCodigo.Size = new Size(58, 23);
+            tCodigo.Size = new Size(81, 31);
             tCodigo.TabIndex = 11;
             tCodigo.Text = "Código";
             tCodigo.Enter += tCodigo_Enter;
@@ -293,11 +316,22 @@
             tCodigo.Leave += tCodigo_Leave;
             tCodigo.Validated += tCodigo_Validated;
             // 
+            // chAzucar
+            // 
+            chAzucar.AutoSize = true;
+            chAzucar.Location = new Point(116, 112);
+            chAzucar.Margin = new Padding(4, 5, 4, 5);
+            chAzucar.Name = "chAzucar";
+            chAzucar.Size = new Size(163, 29);
+            chAzucar.TabIndex = 4;
+            chAzucar.Text = "Contiene azúcar";
+            chAzucar.UseVisualStyleBackColor = true;
+            // 
             // FCarga
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(240, 262);
+            ClientSize = new Size(333, 437);
             Controls.Add(tCodigo);
             Controls.Add(tPrecio);
             Controls.Add(label5);
@@ -312,6 +346,7 @@
             Controls.Add(tNombre);
             Controls.Add(cbTipoProducto);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             Name = "FCarga";
             Text = "Carga / Modificación";
@@ -350,5 +385,6 @@
         private TextBox tPrecio;
         private Label label5;
         private TextBox tCodigo;
+        private CheckBox chAzucar;
     }
 }

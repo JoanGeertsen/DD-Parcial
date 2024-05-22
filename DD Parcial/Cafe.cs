@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 
 namespace DD_Parcial
 {
-    public abstract class Cafe: Producto
+    public abstract class Cafe : Producto
     {
         #region Atributos
         protected string _Tueste;
         protected string _Origen;
         protected bool _Molido;
+        protected bool _ConAzucar;
         public static string TuestePorDefecto = "Medio";
         public static double RecargoPorMolido = 550;
         #endregion
 
         #region Constructores
-        public Cafe(): base() { _Tueste = TuestePorDefecto; _Origen = "Desconocido"; _Molido = false; }
+        public Cafe() : base() { _Tueste = TuestePorDefecto; _Origen = "Desconocido"; _Molido = false; _ConAzucar = false; }
 
-        public Cafe(string _Nombre, int _Codigo, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido) : base(_Nombre, _Codigo, _FechaVencimiento, _Stock, _Precio)
+        public Cafe(string _Nombre, int _Codigo, DateTime _FechaVencimiento, int _Stock, double _Precio, string _Tueste, string _Origen, bool _Molido, bool _ConAzucar) : base(_Nombre, _Codigo, _FechaVencimiento, _Stock, _Precio)
         {
             this._Tueste = (TuesteValido(_Tueste)) ? _Tueste : TuestePorDefecto;
             this._Origen = (_Origen != null && _Origen.Trim() != "") ? _Origen : "Desconocido";
             this._Molido = _Molido;
+            this._ConAzucar = _ConAzucar;
         }
         #endregion
 
@@ -45,6 +47,11 @@ namespace DD_Parcial
             get { return _Molido; }
             set { _Molido = value; }
         }
+        public bool ConAzucar
+        {
+            get { return _ConAzucar; }
+            set { _ConAzucar = value; }
+        }
         #endregion
 
         #region Static
@@ -63,7 +70,8 @@ namespace DD_Parcial
         public override string ToString()
         {
             string molido = _Molido ? "Molido" : "En grano";
-            return base.ToString() + $"\n Tueste: {_Tueste}\n Origen: {_Origen}\n {molido}";
+            string azucar = _ConAzucar ? "Contiene azúcar" : "No contiene azúcar";
+            return base.ToString() + $"\n Tueste: {_Tueste}\n Origen: {_Origen}\n {molido}\n {azucar}";
         }
         #endregion
     }

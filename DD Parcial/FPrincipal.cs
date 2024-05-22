@@ -15,6 +15,9 @@ namespace DD_Parcial
             _Coleccion = new Coleccion();
             _FormularioCarga = new FCarga(_Coleccion, this);
             _FormularioAcercaDe = new FAcercaDe();
+            cbFiltros.SelectedIndex = 0;
+            cbTipoTe.SelectedIndex = 0;
+            cbTueste.SelectedIndex = 0;
         }
 
         #region Funcionalidades      

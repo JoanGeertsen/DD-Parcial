@@ -26,6 +26,9 @@ namespace DD_Parcial
             InitializeComponent();
             this._Coleccion = _Coleccion;
             this._FormularioPrincipal = _FormularioPrincipal;
+            cbTipoProducto.SelectedIndex = 0;
+            cbTueste.SelectedIndex = 0;
+            cbTipoTe.SelectedIndex = 0;            
         }
 
         #region Funcionalidades
@@ -47,6 +50,7 @@ namespace DD_Parcial
 
                 tOrigen.Text = cafe.Origen;
                 chMolido.Checked = cafe.Molido;
+                chAzucar.Checked = cafe.ConAzucar;
             }
 
             else if (producto is Te te)//Campos de té
@@ -115,6 +119,7 @@ namespace DD_Parcial
             cafe.Tueste = cbTueste.Text;
             cafe.Origen = tOrigen.Text;
             cafe.Molido = chMolido.Checked;
+            cafe.ConAzucar = chAzucar.Checked;
         }
 
         private void ArmarTe(Te te)
@@ -200,6 +205,7 @@ namespace DD_Parcial
                     MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _FormularioPrincipal.actualizarListBoxYControles();
                     LimpiarCampos();
+                    this.Close();
                 }
             }
         }
@@ -221,7 +227,7 @@ namespace DD_Parcial
         private void tPrecio_Validating(object sender, CancelEventArgs e)
         {
             if (tPrecio.Text == null || tPrecio.Text.Trim() == "") tPrecio.Text = "0";
-            if (double.Parse(tPrecio.Text) <= 0) ep.SetError(tPrecio, "Precio invalido");
+            if (double.Parse(tPrecio.Text) <= 0 || double.Parse(tPrecio.Text) >= 999999999) ep.SetError(tPrecio, "Precio invalido");
             else ep.SetError(tPrecio, "");
         }
         private void dtFechaVencimiento_Validating(object sender, CancelEventArgs e)
@@ -254,7 +260,7 @@ namespace DD_Parcial
         }
         private void tCodigo_Validated(object sender, EventArgs e)
         {
-            if (tCodigo.Text == "Código" || int.Parse(tCodigo.Text) <= 0) ep.SetError(tCodigo, "Código inválido");
+            if (tCodigo.Text == "Código" || long.Parse(tCodigo.Text) <= 0 || long.Parse(tCodigo.Text) >= 999999) ep.SetError(tCodigo, "Código inválido");
             else ep.SetError(tCodigo, "");
         }
         #endregion
