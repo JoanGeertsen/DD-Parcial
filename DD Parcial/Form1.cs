@@ -7,12 +7,14 @@ namespace DD_Parcial
         #region Atributos
         private Coleccion _Coleccion;
         private FCarga _FormularioCarga;
+        private FAcercaDe _FormularioAcercaDe;
         #endregion
         public FPrincipal()
         {
             InitializeComponent();
             _Coleccion = new Coleccion();
             _FormularioCarga = new FCarga(_Coleccion, this);
+            _FormularioAcercaDe = new FAcercaDe();
         }
 
         #region Funcionalidades
@@ -126,6 +128,11 @@ namespace DD_Parcial
                 actualizarListBoxYControles();
             }
         }
+        private void bAcercaDe_Click(object sender, EventArgs e)
+        {
+            if (_FormularioAcercaDe.IsDisposed) _FormularioAcercaDe = new FAcercaDe();
+            _FormularioAcercaDe.Show(); _FormularioAcercaDe.BringToFront();
+        }
 
         private void bSalir_Click(object sender, EventArgs e)
         {
@@ -175,6 +182,6 @@ namespace DD_Parcial
         {
             actualizarListBoxYControles();
         }
-        #endregion        
+        #endregion       
     }
 }

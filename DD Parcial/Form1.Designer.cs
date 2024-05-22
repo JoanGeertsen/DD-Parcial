@@ -36,6 +36,8 @@
             chFiltro = new CheckBox();
             label1 = new Label();
             pDatos = new Panel();
+            lCantidadTotal = new Label();
+            lCantidadEnPantalla = new Label();
             button1 = new Button();
             button2 = new Button();
             bEliminar = new Button();
@@ -47,8 +49,6 @@
             rbCualquiea = new RadioButton();
             cbTipoTe = new ComboBox();
             label2 = new Label();
-            lCantidadEnPantalla = new Label();
-            lCantidadTotal = new Label();
             pCafe.SuspendLayout();
             pDatos.SuspendLayout();
             pTe.SuspendLayout();
@@ -145,6 +145,24 @@
             pDatos.Size = new Size(158, 56);
             pDatos.TabIndex = 4;
             // 
+            // lCantidadTotal
+            // 
+            lCantidadTotal.AutoSize = true;
+            lCantidadTotal.Location = new Point(6, 10);
+            lCantidadTotal.Name = "lCantidadTotal";
+            lCantidadTotal.Size = new Size(131, 15);
+            lCantidadTotal.TabIndex = 10;
+            lCantidadTotal.Text = "Cantidad de productos:";
+            // 
+            // lCantidadEnPantalla
+            // 
+            lCantidadEnPantalla.AutoSize = true;
+            lCantidadEnPantalla.Location = new Point(6, 33);
+            lCantidadEnPantalla.Name = "lCantidadEnPantalla";
+            lCantidadEnPantalla.Size = new Size(116, 15);
+            lCantidadEnPantalla.TabIndex = 9;
+            lCantidadEnPantalla.Text = "Cantidad en pantalla";
+            // 
             // button1
             // 
             button1.BackColor = Color.PaleGreen;
@@ -211,6 +229,7 @@
             bAcercaDe.TabIndex = 8;
             bAcercaDe.Text = "Acerca de";
             bAcercaDe.UseVisualStyleBackColor = false;
+            bAcercaDe.Click += bAcercaDe_Click;
             // 
             // pTe
             // 
@@ -280,24 +299,6 @@
             label2.Size = new Size(18, 15);
             label2.TabIndex = 4;
             label2.Text = "Té";
-            // 
-            // lCantidadEnPantalla
-            // 
-            lCantidadEnPantalla.AutoSize = true;
-            lCantidadEnPantalla.Location = new Point(6, 33);
-            lCantidadEnPantalla.Name = "lCantidadEnPantalla";
-            lCantidadEnPantalla.Size = new Size(116, 15);
-            lCantidadEnPantalla.TabIndex = 9;
-            lCantidadEnPantalla.Text = "Cantidad en pantalla";
-            // 
-            // lCantidadTotal
-            // 
-            lCantidadTotal.AutoSize = true;
-            lCantidadTotal.Location = new Point(6, 10);
-            lCantidadTotal.Name = "lCantidadTotal";
-            lCantidadTotal.Size = new Size(131, 15);
-            lCantidadTotal.TabIndex = 10;
-            lCantidadTotal.Text = "Cantidad de productos:";
             // 
             // FPrincipal
             // 

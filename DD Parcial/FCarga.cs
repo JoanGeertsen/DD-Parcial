@@ -182,10 +182,8 @@ namespace DD_Parcial
                 if (Existe(producto) && !tCodigo.Enabled)
                 {
                     if (MessageBox.Show("¿Está seguro de que desea actualizar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
                         _Coleccion.Eliminar(producto);
-                        guardar = true;
-                    }
+                    else guardar = false;
                 }
 
                 else if (Existe(producto) && tCodigo.Enabled)
