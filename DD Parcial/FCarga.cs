@@ -35,21 +35,21 @@ namespace DD_Parcial
             colorTextBox(); cbTipoProducto.Enabled = false; tCodigo.Enabled = false; ep.Clear();
             //Campos de producto:
             tNombre.Text = producto.Nombre; tCodigo.Text = producto.Codigo.ToString(); dtFechaVencimiento.Value = producto.FechaVencimiento;
-            tPrecio.Text= producto.Precio.ToString(); nudStock.Value = producto.Stock;
+            tPrecio.Text = producto.Precio.ToString(); nudStock.Value = producto.Stock;
 
-            if(producto is Cafe cafe)//Campos de café
+            if (producto is Cafe cafe)//Campos de café
             {
-                if(producto is Filtro) cbTipoProducto.SelectedIndex = 0; else cbTipoProducto.SelectedIndex = 1;
+                if (producto is Filtro) cbTipoProducto.SelectedIndex = 0; else cbTipoProducto.SelectedIndex = 1;
 
-                if(cafe.Tueste.ToLower() == "bajo") cbTueste.SelectedIndex = 0;
+                if (cafe.Tueste.ToLower() == "bajo") cbTueste.SelectedIndex = 0;
                 else if (cafe.Tueste.ToLower() == "medio") cbTueste.SelectedIndex = 1;
                 else if (cafe.Tueste.ToLower() == "alto") cbTueste.SelectedIndex = 2;
 
                 tOrigen.Text = cafe.Origen;
-                chMolido.Checked= cafe.Molido;
+                chMolido.Checked = cafe.Molido;
             }
-            
-            else if(producto is Te te)//Campos de té
+
+            else if (producto is Te te)//Campos de té
             {
                 cbTipoProducto.SelectedIndex = 2;
 
@@ -59,11 +59,11 @@ namespace DD_Parcial
                 chPresentacion.Checked = te.PresentacionEnLata;
             }
 
-            else if(producto is Infusion infusion)//Campos de infusión
+            else if (producto is Infusion infusion)//Campos de infusión
             {
                 cbTipoProducto.SelectedIndex = 3;
 
-                rtDescripcion.Text= infusion.Descripcion;
+                rtDescripcion.Text = infusion.Descripcion;
             }
         }
         private void cbTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,16 +179,16 @@ namespace DD_Parcial
                 ArmarProductoBase(producto);
                 bool guardar = true;
 
-               if (Existe(producto) && !tCodigo.Enabled)
+                if (Existe(producto) && !tCodigo.Enabled)
                 {
-                    if(MessageBox.Show("¿Está seguro de que desea actualizar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Está seguro de que desea actualizar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         _Coleccion.Eliminar(producto);
                         guardar = true;
                     }
                 }
 
-               else if (Existe(producto) && tCodigo.Enabled)
+                else if (Existe(producto) && tCodigo.Enabled)
                 {
                     MessageBox.Show("Ya existe producto con ese código", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tCodigo.Focus(); ep.SetError(tCodigo, "Código repetido");
@@ -196,7 +196,7 @@ namespace DD_Parcial
                 }
 
 
-                if(guardar)
+                if (guardar)
                 {
                     _Coleccion.Agregar(producto);
                     MessageBox.Show(producto.ToString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -350,8 +350,8 @@ namespace DD_Parcial
             }
         }
         private void colorTextBox()
-        {         
-            tCodigo.ForeColor = Color.Black; tNombre.ForeColor = Color.Black; tPrecio.ForeColor = Color.Black; 
+        {
+            tCodigo.ForeColor = Color.Black; tNombre.ForeColor = Color.Black; tPrecio.ForeColor = Color.Black;
             tOrigen.ForeColor = Color.Black;
             rtDescripcion.ForeColor = Color.Black;
         }

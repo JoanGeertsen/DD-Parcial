@@ -311,6 +311,8 @@
             Controls.Add(dtFechaVencimiento);
             Controls.Add(tNombre);
             Controls.Add(cbTipoProducto);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimizeBox = false;
             Name = "FCarga";
             Text = "Carga / Modificación";
             pCafe.ResumeLayout(false);

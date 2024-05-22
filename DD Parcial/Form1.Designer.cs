@@ -47,7 +47,10 @@
             rbCualquiea = new RadioButton();
             cbTipoTe = new ComboBox();
             label2 = new Label();
+            lCantidadEnPantalla = new Label();
+            lCantidadTotal = new Label();
             pCafe.SuspendLayout();
+            pDatos.SuspendLayout();
             pTe.SuspendLayout();
             SuspendLayout();
             // 
@@ -135,6 +138,8 @@
             // pDatos
             // 
             pDatos.BackColor = Color.Wheat;
+            pDatos.Controls.Add(lCantidadTotal);
+            pDatos.Controls.Add(lCantidadEnPantalla);
             pDatos.Location = new Point(302, 260);
             pDatos.Name = "pDatos";
             pDatos.Size = new Size(158, 56);
@@ -276,6 +281,24 @@
             label2.TabIndex = 4;
             label2.Text = "Té";
             // 
+            // lCantidadEnPantalla
+            // 
+            lCantidadEnPantalla.AutoSize = true;
+            lCantidadEnPantalla.Location = new Point(6, 33);
+            lCantidadEnPantalla.Name = "lCantidadEnPantalla";
+            lCantidadEnPantalla.Size = new Size(116, 15);
+            lCantidadEnPantalla.TabIndex = 9;
+            lCantidadEnPantalla.Text = "Cantidad en pantalla";
+            // 
+            // lCantidadTotal
+            // 
+            lCantidadTotal.AutoSize = true;
+            lCantidadTotal.Location = new Point(6, 10);
+            lCantidadTotal.Name = "lCantidadTotal";
+            lCantidadTotal.Size = new Size(131, 15);
+            lCantidadTotal.TabIndex = 10;
+            lCantidadTotal.Text = "Cantidad de productos:";
+            // 
             // FPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -292,10 +315,14 @@
             Controls.Add(cbFiltros);
             Controls.Add(lbProductos);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FPrincipal";
             Text = "Principal";
             pCafe.ResumeLayout(false);
             pCafe.PerformLayout();
+            pDatos.ResumeLayout(false);
+            pDatos.PerformLayout();
             pTe.ResumeLayout(false);
             pTe.PerformLayout();
             ResumeLayout(false);
@@ -322,5 +349,7 @@
         private RadioButton rbCualquiea;
         private RadioButton rbSobre;
         private RadioButton rbLata;
+        private Label lCantidadTotal;
+        private Label lCantidadEnPantalla;
     }
 }

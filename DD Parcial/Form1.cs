@@ -86,6 +86,9 @@ namespace DD_Parcial
 
             List<Producto> listaMostrar = obtenerLista();
 
+            lCantidadEnPantalla.Text = $"Cantidad en pantalla: {listaMostrar.Count}";
+            lCantidadTotal.Text = $"Cantidad de productos: {_Coleccion.Buscar().Count}";
+
             foreach (Producto p in listaMostrar)
                 lbProductos.Items.Add(p.ToString());
         }
@@ -115,7 +118,7 @@ namespace DD_Parcial
                 MessageBox.Show("Debe seleccionar un item del listado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (lbProductos.Items.Count > 0) lbProductos.SetSelected(0, true);
             }
-            else if(MessageBox.Show("¿Está seguro que desea eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else if (MessageBox.Show("¿Está seguro que desea eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<Producto> lista = obtenerLista();
                 Producto producto = lista[lbProductos.SelectedIndex];
